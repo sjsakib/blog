@@ -1,5 +1,15 @@
 @import "./styles/_base";
 
-.root-container {
-  /*display: flex;*/
+.ribbon {
+  width: 250px;
+  background: #fff;
+  position: absolute;
+  top: 55px;
+  border: 1px solid #373b3e;
+  left: -55px;
+  text-align: center;
+  color: #22262a;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  z-index: 2000;
 }
