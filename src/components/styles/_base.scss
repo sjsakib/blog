@@ -20,6 +20,8 @@ $secondary-font: "Noticia Text", serif;
 
 $button-hover-color: #f5f5f5;
 
+$border-color: #dadce0;
+
 body {
   font-family: $primary-font;
 }
@@ -29,5 +31,8 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-bottom: 1px solid #dadce0;
+    border-bottom: 1px solid $border-color;
+}
+.divider.no-margin {
+    margin: 0;
 }
