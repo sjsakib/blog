@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Sharfin Jahan Sakib`,
+    title: `Sakib`,
     description: `Portfolio and blog of Sharfin Jahan Sakib, front-end developer`,
+    author: `Sharfin Janhan Sakib`,
   },
 
-  
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -42,12 +42,13 @@ module.exports = {
         username: `@sjsakib`,
       },
     },
-    {
+    `gatsby-plugin-sass`,
+    /*{
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
-    },
+    },*/
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

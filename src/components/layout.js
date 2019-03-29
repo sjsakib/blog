@@ -8,8 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import { Container } from "react-bootstrap"
 
-import "./layout.css"
+import Header from "./header"
+import "./layout.scss"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,13 +24,17 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <>
-        <div>
-          <main>{children}</main>
-        </div>
-      </>
-    )}
+    render={data => {
+      const { title } = data.site.siteMetadata
+      return (
+        <>
+          <div className="root-container">
+            <Header siteTitle={title} />
+            <Container fluid>{children}</Container>
+          </div>
+        </>
+      )
+    }}
   />
 )
 

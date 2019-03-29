@@ -1,0 +1,33 @@
+// bootstrap essentials
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// bootstrap extras
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/transitions";
+@import "node_modules/bootstrap/scss/reboot";
+
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Noticia+Text|Quando');
+
+
+// font variables
+$primary-font: "Quando", serif;
+$secondary-font: "Noticia Text", serif;
+
+$button-hover-color: #f5f5f5;
+
+body {
+  font-family: $primary-font;
+}
+
+.divider {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-bottom: 1px solid #dadce0;
+}
