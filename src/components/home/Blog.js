@@ -1,5 +1,5 @@
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
 export default () => (
   <StaticQuery
@@ -27,11 +27,11 @@ export default () => (
       }
     `}
     render={data => {
-      console.log(data)
+      console.log(data);
       return (
-        <header>
+        <section id="blog">
           {data.allMediumPost.edges.map(edge => {
-            const post = edge.node
+            const post = edge.node;
             return (
               <div>
                 <a
@@ -43,10 +43,10 @@ export default () => (
                   {post.title}
                 </a>
               </div>
-            )
+            );
           })}
-        </header>
-      )
+        </section>
+      );
     }}
   />
-)
+);

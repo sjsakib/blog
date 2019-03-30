@@ -1,7 +1,9 @@
-import React from "react"
-import Zoom from "react-reveal/Zoom"
+import React from 'react';
+import Zoom from 'react-reveal/Zoom';
+import Jump from 'react-reveal/Jump';
+import { FaLongArrowAltDown } from 'react-icons/fa';
 
-import "../styles/hero.scss"
+import '../styles/hero.scss';
 
 const Hero = () => {
   return (
@@ -17,8 +19,15 @@ const Hero = () => {
       <Zoom cascade right ssrReveal delay={4000}>
         <h2>A fronted developer</h2>
       </Zoom>
+      <Zoom ssrReveal delay={6000}>
+        <a href="/#blog">
+          <Jump forever>
+            <FaLongArrowAltDown class="arrow-down" />
+          </Jump>
+        </a>
+      </Zoom>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

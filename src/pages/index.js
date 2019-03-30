@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Blog from "../components/home/Blog"
-import Hero from "../components/home/Hero"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Blog from '../components/home/Blog';
+import Hero from '../components/home/Hero';
 
 const IndexPage = () => (
   <Layout>
@@ -15,6 +15,6 @@ const IndexPage = () => (
       <Blog />
     </div>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
