@@ -3,7 +3,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FaGithub, FaFacebook, FaMedium } from 'react-icons/fa';
 
-import './header.scss';
+import './styles/header.scss';
 
 const Header = ({ siteTitle }) => (
   <Navbar id="side-nav" bg="light" expand="lg">

@@ -1,21 +1,17 @@
 @import '_base.scss';
 
 #hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
+  min-height: 100vh;
 
-    .react-reveal {
-        display: inline;
-        margin-left: 1rem;
-    }
+  .react-reveal {
+    display: inline;
+    margin-left: 1rem;
+  }
 
-    .arrow-down {
-        color: #212529;
-        width: 3rem;
-        height: 3rem;
-        margin-top: 3rem;
-    }
+  .arrow-down {
+    color: #212529;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 3rem;
+  }
 }

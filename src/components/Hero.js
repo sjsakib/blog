@@ -3,11 +3,11 @@ import Zoom from 'react-reveal/Zoom';
 import Jump from 'react-reveal/Jump';
 import { FaLongArrowAltDown } from 'react-icons/fa';
 
-import '../styles/hero.scss';
+import './styles/hero.scss';
 
 const Hero = () => {
   return (
-    <div id="hero">
+    <section id="hero">
       <h1>
         <Zoom cascade right ssrReveal className="animated-text">
           Hello!
@@ -20,13 +20,13 @@ const Hero = () => {
         <h2>A fronted developer</h2>
       </Zoom>
       <Zoom ssrReveal delay={6000}>
-        <a href="/#blog">
+        <a href="/#about">
           <Jump forever>
             <FaLongArrowAltDown class="arrow-down" />
           </Jump>
         </a>
       </Zoom>
-    </div>
+    </section>
   );
 };
 
