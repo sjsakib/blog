@@ -1,6 +1,7 @@
 import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 import Jump from 'react-reveal/Jump';
+import Fade from 'react-reveal/Fade';
 import { FaLongArrowAltDown } from 'react-icons/fa';
 
 import './styles/hero.scss';
@@ -9,16 +10,16 @@ const Hero = () => {
   return (
     <section id="hero">
       <h1>
-        <Zoom cascade right ssrReveal className="animated-text">
+        <Zoom cascade ssrReveal duration={500} className="animated-text">
           Hello!
         </Zoom>
-        <Zoom cascade right ssrReveal delay={2000} className="animated-text">
+        <Zoom cascade ssrReveal duration={500} delay={2000} className="animated-text">
           I'm Sakib
         </Zoom>
       </h1>
-      <Zoom cascade right ssrReveal delay={4000}>
+      <Fade cascade up ssrReveal duration={500} delay={4000}>
         <h2>A fronted developer</h2>
-      </Zoom>
+      </Fade>
       <Zoom ssrReveal delay={6000}>
         <a href="/#about">
           <Jump forever>
