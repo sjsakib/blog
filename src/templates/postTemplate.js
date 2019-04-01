@@ -1,27 +1,36 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import { FaTags, FaRegCalendarAlt } from 'react-icons/fa';
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data; // data.markdownRemark holds our post data
+import Layout from '../components/layout';
+import '../components/styles/post.scss';
+
+export default ({ data }) => {
+  const { markdownRemark } = data;
+  console.log(frontmatter);
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <div className="blog-post-container">
-        <div className="blog-post">
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+      <div className="post">
+        <div className="post-heading">
+          <h1 className="display-1">{frontmatter.title}</h1>
+          <p>
+            <span className="post-meta">
+              <FaTags /> {frontmatter.tags.join(', ')}
+            </span>
+            <span className="post-meta">
+              <FaRegCalendarAlt /> {frontmatter.date}
+            </span>
+          </p>
         </div>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -31,6 +40,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        tags
       }
     }
   }
