@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 
 import './styles/skills.scss';
-import AlgoLogo from '../content/icons/AlgoLogo.svg';
+import AlgoLogo from '../images/AlgoLogo.svg';
 
 export default () => {
   return (
