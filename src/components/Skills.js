@@ -89,8 +89,8 @@ export default () => {
               <h4>Others</h4>
               <p>
                 Besides these, I have some basic DevOps skills I've deployed
-                django and node projects in VPS. I'm used to git and linux
-                shell.
+                django and node projects in VPS. I'm used to git, linux
+                shell, yarn npm etc.
               </p>
             </div>
           </Zoom>
