@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { FaGithub, FaFacebook, FaMedium } from 'react-icons/fa';
+import { FaGithub, FaFacebook, FaMedium, FaGooglePlay } from 'react-icons/fa';
 
 import './styles/header.scss';
 
@@ -12,16 +12,19 @@ const Header = ({ siteTitle }) => (
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav variant="pills" as={'ul'} defaultActiveKey="#home">
         <Nav.Item>
-          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="/#home">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="#about">About</Nav.Link>
+          <Nav.Link href="/#about">About</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="#projects">Projects</Nav.Link>
+          <Nav.Link href="/#skills">Skills</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="#blog">Blog</Nav.Link>
+          <Nav.Link href="/#projects">Projects</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/#blog">Blog</Nav.Link>
         </Nav.Item>
       </Nav>
       <div className="divider" />
@@ -39,6 +42,13 @@ const Header = ({ siteTitle }) => (
           href="https://medium.com/@sjsakib"
         >
           <FaMedium className="social-icon" />
+        </a>
+        <a
+          title="My apps on Google Play"
+          className="social-link"
+          href="https://play.google.com/store/apps/dev?id=7003686930371901994"
+        >
+          <FaGooglePlay className="social-icon" />
         </a>
         <a
           title="Find me on Facebook"

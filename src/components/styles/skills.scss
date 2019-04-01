@@ -1,0 +1,13 @@
+@import './_base';
+
+.skill {
+  margin: 3rem 2rem;
+}
+
+.skill .skill-icon {
+  margin-bottom: 1rem;
+  width: 5rem;
+  height: 5rem;
+  fill: $gray-800;
+  stroke: $gray-800;
+}

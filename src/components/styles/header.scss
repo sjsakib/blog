@@ -15,7 +15,7 @@
 
   .nav-link {
     border-radius: 1.5rem;
-    color: #3f4345;
+    color: $gray-800;
   }
 
   .nav-link:hover {
@@ -39,7 +39,7 @@
     }
 
     .social-icon {
-      color: #5f6368;
+      color: $gray-800;
       width: 2rem;
       height: 2rem;
     }

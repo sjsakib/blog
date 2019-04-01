@@ -43,6 +43,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /src\/content\/icons/,
+        },
+      },
+    },
     /*{
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -53,4 +61,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};

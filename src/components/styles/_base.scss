@@ -37,7 +37,11 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .divider {
