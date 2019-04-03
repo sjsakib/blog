@@ -7,7 +7,6 @@ import { FaGithub, FaFacebook, FaMedium, FaGooglePlay } from 'react-icons/fa';
 import './styles/header.scss';
 
 const Header = ({ siteTitle }) => {
-  const path = window.location.pathname;
   let defaultActiveKey = '/#home';
   if (typeof window !== undefined) {
     const path = window.location.pathname;
