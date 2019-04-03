@@ -55,17 +55,22 @@ exports.onCreateNode = async ({
   if (node.internal.type === 'MediumPost') {
     try {
       const fileNode = await createRemoteFileNode({
-        url: `https://cdn-images-1.medium.com/${node.virtuals.previewImage.imageId}`,
+        url: `https://cdn-images-1.medium.com/${
+          node.virtuals.previewImage.imageId
+        }`,
+        parentNodeId: node.id,
         store,
         cache,
         createNode,
         createNodeId,
       });
-      createNodeField({
+
+      node.image___NODE = fileNode.id
+      /*createNodeField({
         node,
         name: 'image___NODE',
         value: fileNode.id,
-      });
+      });*/
     } catch (err) {
       console.log(err);
     }
