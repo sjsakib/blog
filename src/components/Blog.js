@@ -34,12 +34,13 @@ export default () => {
   console.log(data);
   return (
     <section id="blog">
+      <h1>Blog</h1>
       <Row>
         {data.allMediumPost.edges.map(edge => {
           const { id, title, uniqueSlg, image } = edge.node;
           const { subtitle, tags } = edge.node.virtuals;
           return (
-            <Col key={id}>
+            <Col md={6} lg={6} key={id}>
               <PostCard
                 title={title}
                 summary={subtitle}
