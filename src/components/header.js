@@ -8,11 +8,12 @@ import './styles/header.scss';
 
 const Header = ({ siteTitle }) => {
   const path = window.location.pathname;
-  const defaultActiveKey = path.startsWith('/blog')
-    ? '#/blog'
-    : path.startsWith('/project')
-    ? '/#projects'
-    : '/#home';
+  let defaultActiveKey = '/#home';
+  if (window) {
+    const path = window.location.pathname;
+    if (path.startsWith('/blog')) defaultActiveKey = '/#blog';
+    if (path.startsWith('/project')) defaultActiveKey = '/#projects';
+  }
 
   return (
     <Navbar id="side-nav" expand="lg">
