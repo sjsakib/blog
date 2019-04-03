@@ -37,7 +37,7 @@ export default () => {
       <h1>Blog</h1>
       <Row>
         {data.allMediumPost.edges.map(edge => {
-          const { id, title, uniqueSlg, image } = edge.node;
+          const { id, title, uniqueSlug, image } = edge.node;
           const { subtitle, tags } = edge.node.virtuals;
           return (
             <Col md={6} lg={6} key={id}>
@@ -45,7 +45,7 @@ export default () => {
                 title={title}
                 summary={subtitle}
                 image={image.childImageSharp.fluid}
-                href={`https://medium.com/${uniqueSlg}`}
+                href={`https://medium.com/stories/${uniqueSlug}`}
               />
             </Col>
           );
