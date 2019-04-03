@@ -1,11 +1,33 @@
 {
-  "folders": [
-    {
-      "path": ".",
-      "folder_exclude_patterns": ["node_modules", ".cache", "public"]
-    }
-  ],
-  "settings": {
-    "tab_size": 2
-  }
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				".cache",
+				"public"
+			],
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"LSP":
+		{
+			"javascript-typescript-langserver":
+			{
+				"enabled": true
+			},
+			"lsp-tsserver":
+			{
+				"enabled": true
+			},
+			"typescript-language-server":
+			{
+				"enabled": true
+			}
+		},
+		"tab_size": 2
+	}
 }

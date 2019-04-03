@@ -1,0 +1,15 @@
+a.card-link,
+a.card-link:hover {
+  color: inherit;
+}
+
+.post-card {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+.post-card:hover {
+  border-color: white;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}

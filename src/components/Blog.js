@@ -1,52 +1,55 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Row, Col } from 'react-bootstrap';
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      {
-        allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-          edges {
-            node {
-              detectedLanguage
-              creatorId
-              medium_id
-              title
-              virtuals {
-                subtitle
-                previewImage {
-                  imageId
-                }
+import PostCard from './PostCard';
+
+export default () => {
+  const data = useStaticQuery(graphql`
+    {
+      allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+        edges {
+          node {
+            id
+            title
+            uniqueSlug
+            virtuals {
+              subtitle
+              tags {
+                slug
               }
-              author {
-                name
+            }
+            image {
+              childImageSharp {
+                fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
         }
       }
-    `}
-    render={data => {
-      console.log(data);
-      return (
-        <section id="blog">
-          {data.allMediumPost.edges.map(edge => {
-            const post = edge.node;
-            return (
-              <div>
-                <a
-                  href={`https://medium.com/${post.creatorId}/${
-                    post.medium_id
-                  }`}
-                  key={post.id}
-                >
-                  {post.title}
-                </a>
-              </div>
-            );
-          })}
-        </section>
-      );
-    }}
-  />
-);
+    }
+  `);
+  console.log(data);
+  return (
+    <section id="blog">
+      <Row>
+        {data.allMediumPost.edges.map(edge => {
+          const { id, title, uniqueSlg, image } = edge.node;
+          const { subtitle, tags } = edge.node.virtuals;
+          return (
+            <Col key={id}>
+              <PostCard
+                title={title}
+                summary={subtitle}
+                image={image.childImageSharp.fluid}
+                href={`https://medium.com/${uniqueSlg}`}
+              />
+            </Col>
+          );
+        })}
+      </Row>
+    </section>
+  );
+};
