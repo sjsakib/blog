@@ -7,7 +7,6 @@ import '../components/styles/post.scss';
 
 export default ({ data }) => {
   const { markdownRemark } = data;
-  console.log(frontmatter);
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
@@ -16,7 +15,11 @@ export default ({ data }) => {
           <h1 className="display-1">{frontmatter.title}</h1>
           <p>
             <span className="post-meta">
-              <FaTags /> {frontmatter.tags.join(', ')}
+              {frontmatter.tags && (
+                <>
+                  <FaTags /> {frontmatter.tags.join(', ')}
+                </>
+              )}
             </span>
             <span className="post-meta">
               <FaRegCalendarAlt /> {frontmatter.date}
