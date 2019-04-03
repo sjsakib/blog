@@ -40,6 +40,7 @@ module.exports = {
       resolve: `gatsby-source-medium`,
       options: {
         username: `@sjsakib`,
+        limit: process.env.NODE_ENV === 'development' ? 2 : 500,
       },
     },
     `gatsby-plugin-sass`,
