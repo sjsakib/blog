@@ -9,7 +9,7 @@ import './styles/header.scss';
 const Header = ({ siteTitle }) => {
   const path = window.location.pathname;
   let defaultActiveKey = '/#home';
-  if (window) {
+  if (typeof window !== undefined) {
     const path = window.location.pathname;
     if (path.startsWith('/blog')) defaultActiveKey = '/#blog';
     if (path.startsWith('/project')) defaultActiveKey = '/#projects';
