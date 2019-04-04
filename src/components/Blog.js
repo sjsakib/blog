@@ -97,6 +97,8 @@ export default ({ perPage = 9 }) => {
     })
   );
 
+  posts.sort((a, b) => b.date - a.date);
+
   return (
     <section id="blog">
       <h1>Blog</h1>
