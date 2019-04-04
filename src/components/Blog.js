@@ -38,13 +38,13 @@ export default () => {
       <Row>
         {data.allMediumPost.edges.map(edge => {
           const { id, title, uniqueSlug, image } = edge.node;
-          const { subtitle, tags } = edge.node.virtuals;
+          const { subtitle } = edge.node.virtuals;
           return (
             <Col md={6} lg={6} key={id}>
               <PostCard
                 title={title}
                 summary={subtitle}
-                image={image.childImageSharp.fluid}
+                image={image && image.childImageSharp.fluid}
                 href={`https://medium.com/stories/${uniqueSlug}`}
               />
             </Col>

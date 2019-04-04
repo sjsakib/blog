@@ -2,52 +2,42 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'gatsby';
 import { Navbar, Nav } from 'react-bootstrap';
+import Scrollspy from 'react-scrollspy';
 import { FaGithub, FaFacebook, FaMedium, FaGooglePlay } from 'react-icons/fa';
 
 import './styles/header.scss';
 
 const Header = ({ siteTitle }) => {
-  let defaultActiveKey = '/#home';
-  if (typeof window !== undefined) {
-    const path = window.location.pathname;
-    if (path.startsWith('/blog')) defaultActiveKey = '/#blog';
-    if (path.startsWith('/project')) defaultActiveKey = '/#projects';
-  }
 
   return (
     <Navbar id="side-nav" expand="lg">
-      <Navbar.Brand as={Link} to="/#home">
+      <Navbar.Brand as={Link} to="/#hero">
         <span className="d-block d-lg-none">{siteTitle}</span>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav variant="pills" as={'ul'} defaultActiveKey={defaultActiveKey}>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/#home" href="/#home">
-              Home
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/#about" href="/#about">
-              About
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/#skills" href="/#skills">
-              Skills
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/#projects" href="/#projects">
-              Projects
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/#blog" href="/#blog">
-              Blog
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
+        <Scrollspy
+          items={['hero', 'about', 'skills', 'projects', 'blog']}
+          currentClassName="active"
+          componentTag={Nav}
+          offset={-200}
+        >
+          <Nav.Link as={Link} to="/#hero">
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to="/#about">
+            About
+          </Nav.Link>
+          <Nav.Link as={Link} to="/#skills">
+            Skills
+          </Nav.Link>
+          <Nav.Link as={Link} to="/#projects">
+            Projects
+          </Nav.Link>
+          <Nav.Link as={Link} to="/#blog">
+            Blog
+          </Nav.Link>
+        </Scrollspy>
         <div className="divider" />
         <div id="social-icons">
           <a

@@ -27,6 +27,7 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.5.0",
     "react-reveal": "^1.2.2",
+    "react-scrollspy": "^3.4.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   },

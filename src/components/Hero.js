@@ -23,7 +23,7 @@ const Hero = () => {
       <Zoom ssrReveal delay={6000}>
         <a href="/#about">
           <Jump forever>
-            <FaLongArrowAltDown class="arrow-down" />
+            <FaLongArrowAltDown className="arrow-down" />
           </Jump>
         </a>
       </Zoom>

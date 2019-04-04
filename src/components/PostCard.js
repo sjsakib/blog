@@ -10,7 +10,9 @@ export default ({ title, summary, image, href }) => {
   return (
     <Link className="card-link" to={href} href={href}>
       <Card className="post-card">
-        <Img class="card-img-top" fluid={image} alt="Card image cap" />
+        {image && (
+          <Img className="card-img-top" fluid={image} alt="Card image cap" />
+        )}
         <Card.Body>
           <Card.Title as={'h4'}>{title}</Card.Title>
           <Card.Text>{summary}</Card.Text>
