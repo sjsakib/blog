@@ -17,7 +17,7 @@ export default () => {
             frontmatter {
               path
               title
-              summary
+              subtitle
               tags
               image {
                 childImageSharp {
@@ -34,13 +34,13 @@ export default () => {
     }
   `);
   const posts = data.allMarkdownRemark.edges.map(edge => {
-    const { title, summary, image, path } = edge.node.frontmatter;
+    const { title, subtitle, image, path } = edge.node.frontmatter;
     const {id}  = edge.node;
     return (
       <Col lg={6} md={6} key={id}>
         <PostCard
           title={title}
-          summary={summary}
+          subtitle={subtitle}
           image={image.childImageSharp.fluid}
           href={path}
         />

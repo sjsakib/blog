@@ -5,6 +5,7 @@ type: project
 order: 0
 
 title: বাংলা টাইটেল
+subtitle: This is a subtitle
 image: ../../images/gatsby-astronaut.png
 tags:
   - gatsby

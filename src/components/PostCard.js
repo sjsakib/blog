@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 
 import './styles/post-card.scss';
 
-export default ({ title, summary, image, href }) => {
+export default ({ title, subtitle, image, href }) => {
   const Link = href.startsWith('/') ? GatsbyLink : 'a';
   return (
     <Link className="card-link" to={href} href={href}>
@@ -15,7 +15,7 @@ export default ({ title, summary, image, href }) => {
         )}
         <Card.Body>
           <Card.Title as={'h4'}>{title}</Card.Title>
-          <Card.Text>{summary}</Card.Text>
+          <Card.Text>{subtitle}</Card.Text>
         </Card.Body>
       </Card>
     </Link>
