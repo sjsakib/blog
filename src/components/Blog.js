@@ -165,6 +165,7 @@ const FilteredPosts = ({
       {posts.length > perPage && (
         <Link title="See More" className="card-link" to="/blog">
           <FaEllipsisH size={'3rem'} />
+          <h4>More</h4>
         </Link>
       )}
     </div>
