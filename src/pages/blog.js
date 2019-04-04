@@ -8,7 +8,7 @@ const BlogPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <div>
-      <Blog />
+      <Blog perPage={1000} />
     </div>
   </Layout>
 );

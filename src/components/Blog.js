@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
+import { FaArrowDown, FaArrowUp, FaEllipsisH } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default () => {
+export default ({ perPage = 10 }) => {
   const data = useStaticQuery(graphql`
     {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
@@ -95,37 +96,60 @@ export default () => {
       };
     })
   );
-  console.log(allTags, posts);
 
   return (
     <section id="blog">
       <h1>Blog</h1>
-      <FilteredPosts posts={posts} tags={allTags} perRow={3} />
+      <FilteredPosts
+        posts={posts}
+        tags={allTags}
+        perRow={3}
+        perPage={perPage}
+      />
     </section>
   );
 };
 
-const FilteredPosts = ({ posts, tags, perRow }) => {
+const FilteredPosts = ({
+  posts,
+  tags,
+  perRow,
+  perPage = 10,
+  showTags = 10,
+}) => {
   tags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   const [selected, setSelected] = useState({});
+  const [tagsMore, setTagsMore] = useState(false);
 
   return (
     <div>
       <div>
-        {tags.map(t => (
+        {tags.slice(0, tagsMore ? tags.length : showTags).map(t => (
           <span
             className={'tag ' + (selected[t] ? ' selected' : '')}
             key={t}
             onClick={() => {
-              setSelected({ ...selected, [t]: !selected[t] || undefined });
+              setSelected({ ...selected, [t]: !selected[t] });
             }}
           >
             {t}
           </span>
         ))}
       </div>
+      <span onClick={() => setTagsMore(!tagsMore)} className="tag">
+        {tagsMore ? (
+          <>
+            <FaArrowUp /> Show Less
+          </>
+        ) : (
+          <>
+            <FaArrowDown /> {`Show ${tags.length - showTags} more`}
+          </>
+        )}
+      </span>
       <Row>
         {posts
+          .slice(0, Math.min(perPage, posts.length))
           .filter(post =>
             Object.keys(selected).reduce(
               (prev, t) => (selected[t] ? prev && post.tags.includes(t) : prev),
@@ -138,6 +162,11 @@ const FilteredPosts = ({ posts, tags, perRow }) => {
             </Col>
           ))}
       </Row>
+      {posts.length > perPage && (
+        <Link className="card-link" to="/blog">
+          <FaEllipsisH size={'3rem'} />
+        </Link>
+      )}
     </div>
   );
 };
