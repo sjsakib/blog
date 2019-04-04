@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp, FaEllipsisH } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default ({ perPage = 10 }) => {
+export default ({ perPage = 9 }) => {
   const data = useStaticQuery(graphql`
     {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
@@ -163,7 +163,7 @@ const FilteredPosts = ({
           ))}
       </Row>
       {posts.length > perPage && (
-        <Link className="card-link" to="/blog">
+        <Link title="See More" className="card-link" to="/blog">
           <FaEllipsisH size={'3rem'} />
         </Link>
       )}
