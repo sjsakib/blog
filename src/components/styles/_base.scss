@@ -15,6 +15,9 @@
 // Google fonts
 @import url('https://fonts.googleapis.com/css?family=Noticia+Text|Quando');
 
+//highlight
+@import './highlight.scss';
+
 // font variables
 $primary-font: 'Quando', serif;
 $secondary-font: 'Noticia Text', serif;
@@ -58,19 +61,19 @@ section {
   margin: 0;
 }
 
-.tag {
-  display: inline-block;
-  margin: 0.2rem;
-  cursor: pointer;
-  padding: 0.3rem 0.5rem;
-  border-radius: .8rem;
-  border: 1px solid $border-color;
-}
-
-.tag.selected {
-  background-color: #d9d9d9;
-}
-
 #blog {
   justify-content: flex-start;
+
+  .tag {
+    display: inline-block;
+    margin: 0.2rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid $border-color;
+  }
+
+  .tag.selected {
+    background-color: #d9d9d9;
+  }
 }
