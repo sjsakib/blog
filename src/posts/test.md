@@ -5,6 +5,9 @@ date: "2017-11-07"
 title: "My first blog post"
 ---
 
+![Image](../images/gatsby-astronaut.png)
+
+👍
 
 
 ```jsx{numberLines: true}

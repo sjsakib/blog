@@ -19,8 +19,11 @@
 @import './highlight.scss';
 
 // font variables
-$primary-font: 'Quando', serif;
-$secondary-font: 'Noticia Text', serif;
+$primary-font: 'Quando', 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji', serif;
+
+$secondary-font: 'Noticia Text', 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji', serif;
 
 $button-hover-color: #f5f5f5;
 
