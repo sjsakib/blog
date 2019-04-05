@@ -7,7 +7,7 @@ title: "My first blog post"
 
 
 
-```jsx
+```jsx{numberLines: true}
 import React from 'react';
 import { graphql } from 'gatsby';
 import { FaTags, FaRegCalendarAlt } from 'react-icons/fa';

@@ -24,7 +24,7 @@ module.exports = {
               classPrefix: 'language-',
               inlineCodeMarker: `।`,
               aliases: {},
-              showLineNumbers: true,
+              showLineNumbers: false,
               noInlineHighlight: false,
             },
           },
