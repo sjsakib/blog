@@ -1,7 +1,7 @@
 ---
 path: 
 type: project/post
-date: yyyy-mm-dd
+date: 2019-04-06
 
 order: 0
 
