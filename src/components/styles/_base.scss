@@ -98,8 +98,11 @@ section {
 
 .button {
   color: inherit;
-  background-color: white;
+  background-color: $button-hover-color;
   text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: $primary-font;
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
@@ -107,7 +110,6 @@ section {
 
 .button:hover {
   color: inherit;
-  background-color: $button-hover-color;
 }
 
 .space {

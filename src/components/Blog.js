@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
-import { FaArrowDown, FaArrowUp, FaEllipsisH } from 'react-icons/fa';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
@@ -124,6 +124,12 @@ const FilteredPosts = ({
   const [selected, setSelected] = useState({});
   const [tagsMore, setTagsMore] = useState(false);
 
+  posts = posts.filter(post =>
+    Object.keys(selected).every(t =>
+      selected[t] ? post.tags.includes(t) : true
+    )
+  );
+
   return (
     <div>
       <div>
@@ -146,31 +152,26 @@ const FilteredPosts = ({
           </>
         ) : (
           <>
-            <FaArrowDown /> {`Show ${tags.length - showTags} more`}
+            <FaArrowDown />{' '}
+            Show {tags.length - showTags} more
           </>
         )}
       </span>
       <div className="space" />
       <Row>
-        {posts
-          .slice(0, Math.min(perPage, posts.length))
-          .filter(post =>
-            Object.keys(selected).reduce(
-              (prev, t) => (selected[t] ? prev && post.tags.includes(t) : prev),
-              true
-            )
-          ) // Is this crazy?
-          .map(p => (
-            <Col md={12 / perRow} key={p.id}>
-              <PostCard {...p} />
-            </Col>
-          ))}
+        {posts.slice(0, Math.min(perPage, posts.length)).map(p => (
+          <Col md={12 / perRow} key={p.id}>
+            <PostCard {...p} />
+          </Col>
+        ))}
       </Row>
       {posts.length > perPage && (
-        <Link title="See More" className="card-link" to="/blog">
-          <FaEllipsisH size={'3rem'} />
-          <h4>More</h4>
-        </Link>
+        <>
+          <div className="space" />
+          <Link className="button more" to="/blog">
+            See more
+          </Link>
+        </>
       )}
     </div>
   );
