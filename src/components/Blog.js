@@ -102,6 +102,7 @@ export default ({ perPage = 9 }) => {
   return (
     <section id="blog">
       <h1>Blog</h1>
+      <div className="space" />
       <FilteredPosts
         posts={posts}
         tags={allTags}
@@ -149,6 +150,7 @@ const FilteredPosts = ({
           </>
         )}
       </span>
+      <div className="space" />
       <Row>
         {posts
           .slice(0, Math.min(perPage, posts.length))

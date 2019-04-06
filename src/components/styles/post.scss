@@ -7,20 +7,19 @@
   margin-top: 4rem;
   .post-heading {
     text-align: center;
-    margin-bottom: 4rem;
-
-    h1 {
-      font-size: 3rem;
-    }
 
     .post-meta {
-      margin: 1rem;
+      margin: .5rem;
       display: inline-block;
     }
   }
 
+  h2, h3 {
+    margin-top: 2rem;
+  }
+
   hr {
-    margin: 2rem 10rem;
+    width: 50%;
   }
 
   iframe {

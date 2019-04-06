@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FaTags, FaRegCalendarAlt } from 'react-icons/fa';
 
 import Layout from '../components/layout';
@@ -12,12 +12,19 @@ export default ({ data }) => {
     <Layout>
       <div className="post">
         <div className="post-heading">
-          <h1 className="display-1">{frontmatter.title}</h1>
+          <h1 className="display-5">{frontmatter.title}</h1>
           <p>
             <span className="post-meta">
               {frontmatter.tags && (
                 <>
-                  <FaTags /> {frontmatter.tags.join(', ')}
+                  <FaTags />{' '}
+                  {frontmatter.tags
+                    .map(t => (
+                      <Link key={t} className="tag-link" to={`/tags/${t}`}>
+                        {t}
+                      </Link>
+                    ))
+                    .reduce((prev, next) => [prev, ', ', next])}
                 </>
               )}
             </span>

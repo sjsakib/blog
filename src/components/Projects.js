@@ -50,6 +50,7 @@ export default () => {
   return (
     <section id="projects">
       <h1>Projects</h1>
+      <div className="space" />
       <Row>{posts}</Row>
     </section>
   );
