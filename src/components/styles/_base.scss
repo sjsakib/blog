@@ -11,6 +11,7 @@
 @import 'node_modules/bootstrap/scss/reboot';
 @import 'node_modules/bootstrap/scss/card';
 @import 'node_modules/bootstrap/scss/utilities';
+@import 'node_modules/bootstrap/scss/type';
 
 // Google fonts
 @import url('https://fonts.googleapis.com/css?family=Noticia+Text|Quando');
@@ -35,6 +36,11 @@ html {
 
 body {
   font-family: $primary-font;
+  line-height: 1.6;
+  color: #444;
+  h1 {
+    color: #333;
+  }
 }
 
 a:hover {

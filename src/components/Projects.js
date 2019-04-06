@@ -41,7 +41,7 @@ export default () => {
         <PostCard
           title={title}
           subtitle={subtitle}
-          image={image.childImageSharp.fluid}
+          image={image && image.childImageSharp.fluid}
           href={path}
         />
       </Col>

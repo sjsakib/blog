@@ -21,7 +21,7 @@ const Hero = () => {
         <h2>A fronted developer</h2>
       </Fade>
       <Zoom ssrReveal delay={6000}>
-        <a href="/#about">
+        <a href="/#about" className="arrow-down-link">
           <Jump forever>
             <FaLongArrowAltDown className="arrow-down" />
           </Jump>
