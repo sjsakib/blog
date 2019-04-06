@@ -19,6 +19,11 @@
       display: inline-block;
     }
   }
+
+  iframe {
+    display: block;
+    margin: auto;
+  }
 }
 
 @include media-breakpoint-up(lg) {
