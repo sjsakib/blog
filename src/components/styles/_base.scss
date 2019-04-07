@@ -129,6 +129,11 @@ section {
   height: 2rem;
 }
 
+footer {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 @include media-breakpoint-up(lg) {
   .page {
     section {

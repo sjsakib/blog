@@ -37,6 +37,10 @@ const Layout = ({ children }) => {
     <div className="root-container">
       <Header siteTitle={title} image={image} />
       <Container fluid>{children}</Container>
+      <div className="divider" />
+      <footer>
+        Powered by <a href="https://www.gatsbyjs.org/">Gatsby</a>
+      </footer>
     </div>
   );
 };
