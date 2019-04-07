@@ -3,12 +3,18 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Navbar, Nav } from 'react-bootstrap';
 import Scrollspy from 'react-scrollspy';
-import { FaGithub, FaFacebook, FaMedium, FaGooglePlay } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaFacebook,
+  FaMedium,
+  FaGooglePlay,
+  FaGoodreads,
+  FaStackOverflow,
+} from 'react-icons/fa';
 
 import './styles/header.scss';
 
 const Header = ({ siteTitle }) => {
-
   return (
     <Navbar id="side-nav" expand="lg">
       <Navbar.Brand as={Link} to="/#hero">
@@ -41,6 +47,8 @@ const Header = ({ siteTitle }) => {
         <div className="divider" />
         <div id="social-icons">
           <a
+            target="_blank"
+            rel="noopener"
             title="Find me on GitHub"
             className="social-link"
             href="https://github.com/sjsakib"
@@ -48,6 +56,8 @@ const Header = ({ siteTitle }) => {
             <FaGithub className="social-icon" />
           </a>
           <a
+            target="_blank"
+            rel="noopener"
             title="Find me on Medium"
             className="social-link"
             href="https://medium.com/@sjsakib"
@@ -55,6 +65,8 @@ const Header = ({ siteTitle }) => {
             <FaMedium className="social-icon" />
           </a>
           <a
+            target="_blank"
+            rel="noopener"
             title="My apps on Google Play"
             className="social-link"
             href="https://play.google.com/store/apps/dev?id=7003686930371901994"
@@ -62,6 +74,26 @@ const Header = ({ siteTitle }) => {
             <FaGooglePlay className="social-icon" />
           </a>
           <a
+            target="_blank"
+            rel="noopener"
+            title="Find me on Goodreads"
+            className="social-link"
+            href="https://goodreads.com/sjsakib"
+          >
+            <FaGoodreads className="social-icon" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener"
+            title="Find me on StackOverflow"
+            className="social-link"
+            href="https://stackoverflow.com/users/5591795/s-j-sakib"
+          >
+            <FaStackOverflow className="social-icon" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener"
             title="Find me on Facebook"
             className="social-link"
             href="https://facebook.com/sjsakib"

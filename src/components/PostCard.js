@@ -9,8 +9,9 @@ import './styles/post-card.scss';
 export default ({ title, subtitle, image, href }) => {
   const internal = href.startsWith('/');
   const Link = internal ? GatsbyLink : 'a';
+  const attrs = internal ? {} : { target: '_blank', rel: 'noopener' };
   return (
-    <Link className="card-link" to={href} href={href}>
+    <Link className="card-link" to={href} href={href} {...attrs}>
       <Card className="post-card">
         {image && (
           <Img className="card-img-top" fluid={image} alt="Card image cap" />
