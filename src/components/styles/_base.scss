@@ -122,6 +122,11 @@ section {
   height: 2rem;
 }
 
+.brand-image {
+  width: 5rem;
+  height: 5rem;
+}
+
 @include media-breakpoint-up(lg) {
   .page {
     section {

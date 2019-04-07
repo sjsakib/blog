@@ -118,7 +118,7 @@ const FilteredPosts = ({
   tags,
   perRow,
   perPage = 10,
-  showTags = 10,
+  showTags = 8,
 }) => {
   tags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   const [selected, setSelected] = useState({});

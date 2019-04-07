@@ -1,4 +1,4 @@
-@import "./_base";
+@import './_base';
 
 #side-nav {
   font-family: $primary-font;
@@ -10,12 +10,17 @@
   z-index: 1000;
   background-color: white;
 
+  .brand-image {
+    width: 8rem;
+    height: 8rem;
+  }
+
   .navbar-collapse {
     margin-top: 1rem;
   }
 
   .nav-link {
-    border-radius: 1.5rem;
+    border-radius: .5rem;
     color: $gray-700;
   }
 
@@ -24,7 +29,7 @@
   }
 
   .nav-link.active {
-    background-color: #e8f0fe;
+    // background-color: $button-hover-color;;
     color: #1967d2;
   }
 
@@ -71,15 +76,7 @@
 
     .navbar-nav {
       display: flex;
-      width: 100%;
       flex-direction: column;
-
-      .nav-link {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        text-align: left;
-        padding-left: 3rem;
-      }
     }
   }
 }

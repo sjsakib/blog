@@ -7,36 +7,39 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Container } from 'react-bootstrap';
 
 import Header from './header';
 import './styles/layout.scss';
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      file(relativePath: { regex: "/.*face-circle.png/" }) {
+        childImageSharp {
+          image: fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
-    `}
-    render={data => {
-      const { title } = data.site.siteMetadata;
-      return (
-        <>
-          <div className="root-container">
-            <Header siteTitle={title} />
-            <Container fluid>{children}</Container>
-          </div>
-        </>
-      );
-    }}
-  />
-);
+    }
+  `);
+
+  const { title } = data.site.siteMetadata;
+  const { image } = data.file.childImageSharp;
+  return (
+    <div className="root-container">
+      <Header siteTitle={title} image={image} />
+      <Container fluid>{children}</Container>
+    </div>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

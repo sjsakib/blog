@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Navbar, Nav } from 'react-bootstrap';
 import Scrollspy from 'react-scrollspy';
+import Img from 'gatsby-image';
 import {
   FaGithub,
   FaFacebook,
@@ -14,11 +15,14 @@ import {
 
 import './styles/header.scss';
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, image }) => {
   return (
     <Navbar id="side-nav" expand="lg">
       <Navbar.Brand as={Link} to="/#hero">
         <span className="d-block d-lg-none">{siteTitle}</span>
+        <span className="d-none d-lg-block">
+          <Img fluid={image} className="brand-image" />
+        </span>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
