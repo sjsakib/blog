@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Sakib`,
-    description: `Portfolio and blog of Sharfin Jahan Sakib, front-end developer`,
+    title: `Sharfin Jahan Sakib`,
+    description: `Portfolio and blog of Sharfin Jahan Sakib, full stack web developer. Also known as 'sjsakib' on many platforms`,
     author: `Sharfin Janhan Sakib`,
   },
 

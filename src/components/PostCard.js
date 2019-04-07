@@ -9,7 +9,7 @@ import './styles/post-card.scss';
 export default ({ title, subtitle, image, href }) => {
   const internal = href.startsWith('/');
   const Link = internal ? GatsbyLink : 'a';
-  const attrs = internal ? {} : { target: '_blank', rel: 'noopener' };
+  const attrs = internal ? {} : { target: '_blank', rel: 'noopener noreferrer' };
   return (
     <Link className="card-link" to={href} href={href} {...attrs}>
       <Card className="post-card">

@@ -52,7 +52,7 @@ const Header = ({ siteTitle, image }) => {
         <div id="social-icons">
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="Find me on GitHub"
             className="social-link"
             href="https://github.com/sjsakib"
@@ -61,7 +61,7 @@ const Header = ({ siteTitle, image }) => {
           </a>
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="Find me on Medium"
             className="social-link"
             href="https://medium.com/@sjsakib"
@@ -70,7 +70,7 @@ const Header = ({ siteTitle, image }) => {
           </a>
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="My apps on Google Play"
             className="social-link"
             href="https://play.google.com/store/apps/dev?id=7003686930371901994"
@@ -79,7 +79,7 @@ const Header = ({ siteTitle, image }) => {
           </a>
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="Find me on Goodreads"
             className="social-link"
             href="https://goodreads.com/sjsakib"
@@ -88,7 +88,7 @@ const Header = ({ siteTitle, image }) => {
           </a>
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="Find me on StackOverflow"
             className="social-link"
             href="https://stackoverflow.com/users/5591795/s-j-sakib"
@@ -97,7 +97,7 @@ const Header = ({ siteTitle, image }) => {
           </a>
           <a
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             title="Find me on Facebook"
             className="social-link"
             href="https://facebook.com/sjsakib"

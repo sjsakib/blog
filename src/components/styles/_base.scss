@@ -52,8 +52,18 @@ body {
   }
 }
 
-a:hover {
-  text-decoration: none;
+p {
+  a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: inherit;
+    text-decoration: underline;
+    text-shadow: 0 0 1px #222;
+  }
 }
 
 section {
@@ -87,12 +97,12 @@ section {
     margin: 0.2rem;
     cursor: pointer;
     padding: 0.3rem 0.5rem;
-    border-radius: 0.8rem;
+    border-radius: 0.4rem;
     border: 1px solid $border-color;
   }
 
   .tag.selected {
-    background-color: #d9d9d9;
+    font-weight: bold;
   }
 }
 
@@ -120,11 +130,6 @@ section {
 
 .space {
   height: 2rem;
-}
-
-.brand-image {
-  width: 5rem;
-  height: 5rem;
 }
 
 @include media-breakpoint-up(lg) {

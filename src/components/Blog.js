@@ -113,13 +113,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
   );
 };
 
-const FilteredPosts = ({
-  posts,
-  tags,
-  perRow,
-  perPage = 10,
-  showTags = 8,
-}) => {
+const FilteredPosts = ({ posts, tags, perRow, perPage = 10, showTags = 8 }) => {
   tags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   const [selected, setSelected] = useState({});
   const [tagsMore, setTagsMore] = useState(false);

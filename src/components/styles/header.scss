@@ -15,12 +15,17 @@
     height: 8rem;
   }
 
+  .navbar-brand {
+    color: #333;
+    font-weight: 500;
+  }
+
   .navbar-collapse {
     margin-top: 1rem;
   }
 
   .nav-link {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     color: $gray-700;
   }
 
@@ -30,7 +35,8 @@
 
   .nav-link.active {
     // background-color: $button-hover-color;;
-    color: #1967d2;
+    // color: #1967d2;
+    font-weight: bolder;
   }
 
   #social-icons {
