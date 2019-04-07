@@ -27,6 +27,9 @@
   .nav-link {
     border-radius: 0.5rem;
     color: $gray-700;
+    font-weight: inherit;
+    text-decoration: none;
+    text-shadow: none;
   }
 
   .nav-link:hover {

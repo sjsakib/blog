@@ -52,18 +52,15 @@ body {
   }
 }
 
-p {
-  a {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: underline;
-  }
+a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-  a:hover {
-    color: inherit;
-    text-decoration: underline;
-    text-shadow: 0 0 1px #222;
-  }
+a:hover {
+  color: inherit;
+  text-shadow: 0 0 1px #222;
 }
 
 section {
