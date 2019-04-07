@@ -10,7 +10,7 @@ export default ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <div className="post">
+      <div className="post page">
         <div className="post-heading">
           <h1 className="display-5">{frontmatter.title}</h1>
           <p>

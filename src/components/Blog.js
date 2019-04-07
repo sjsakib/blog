@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default ({ perPage = 9 }) => {
+export default ({ perPage = 9, perRow = 3 }) => {
   const data = useStaticQuery(graphql`
     {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
@@ -106,7 +106,7 @@ export default ({ perPage = 9 }) => {
       <FilteredPosts
         posts={posts}
         tags={allTags}
-        perRow={3}
+        perRow={perRow}
         perPage={perPage}
       />
     </section>
@@ -152,8 +152,7 @@ const FilteredPosts = ({
           </>
         ) : (
           <>
-            <FaArrowDown />{' '}
-            Show {tags.length - showTags} more
+            <FaArrowDown /> Show {tags.length - showTags} more
           </>
         )}
       </span>

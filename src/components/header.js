@@ -31,10 +31,10 @@ const Header = ({ siteTitle }) => {
           <Nav.Link as={Link} to="/#skills">
             Skills
           </Nav.Link>
-          <Nav.Link as={Link} to="/#projects">
+          <Nav.Link as={Link} to="/projects">
             Projects
           </Nav.Link>
-          <Nav.Link as={Link} to="/#blog">
+          <Nav.Link as={Link} to="/blog">
             Blog
           </Nav.Link>
         </Scrollspy>
