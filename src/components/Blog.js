@@ -15,6 +15,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
             frontmatter {
               path
               date(formatString: "X")
+              dateString: date(formatString: "MMMM DD, YYYY")
               title
               subtitle
               tags
@@ -35,6 +36,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
             id
             title
             uniqueSlug
+            dateString: createdAt(formatString: "MMMM DD, YYYY")
             createdAt(formatString: "X")
             virtuals {
               subtitle
@@ -57,7 +59,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
   const allTags = {};
   let posts = data.allMarkdownRemark.edges.map(edge => {
     const { id, frontmatter } = edge.node;
-    const { date, title, subtitle, image, path, tags } = frontmatter;
+    const { date, dateString, title, subtitle, image, path, tags } = frontmatter;
 
     tags &&
       tags.forEach(t => {
@@ -67,6 +69,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
     return {
       id,
       date,
+      dateString,
       title,
       subtitle,
       tags: tags || [],
@@ -77,7 +80,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
 
   posts = posts.concat(
     data.allMediumPost.edges.map(edge => {
-      const { id, createdAt, title, image, uniqueSlug, virtuals } = edge.node;
+      const { id, createdAt, dateString, title, image, uniqueSlug, virtuals } = edge.node;
       const { subtitle, tags } = virtuals;
 
       tags &&
@@ -88,6 +91,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
       return {
         id,
         date: createdAt,
+        dateString,
         title,
         subtitle,
         image: image && image.childImageSharp.fluid,
