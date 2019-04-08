@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Sharfin Jahan Sakib`,
-    description: `Portfolio and blog of Sharfin Jahan Sakib, full stack web developer. Also known as 'sjsakib' on many platforms`,
+    description: "Passionate programmer, full stack web developer. Also goes by the handle 'sjsakib' on many platforms.",
     author: `Sharfin Janhan Sakib`,
+
+    rootUrl: `https://sakib.dev`,
   },
 
   plugins: [

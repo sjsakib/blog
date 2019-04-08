@@ -10,7 +10,7 @@ import Projects from '../components/Projects';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" />
     <div>
       <Hero />
       <div className="divider no-margin" />

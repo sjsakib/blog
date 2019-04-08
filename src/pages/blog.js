@@ -6,7 +6,7 @@ import Blog from '../components/Blog';
 
 const BlogPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Blog" />
     <div className="page">
       <Blog perPage={1000} perRow={2} />
     </div>

@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
+function SEO({ description, lang, meta, keywords, title, ogImage, ogType }) {
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -19,13 +19,27 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            rootUrl
+          }
+        }
+        file(relativePath: { regex: "/.*face-cover.png/" }) {
+          childImageSharp {
+            fixed(width: 2400, height: 1260) {
+              src
+            }
           }
         }
       }
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const { siteMetadata } = data.site;
+
+  const metaDescription = description || siteMetadata.description;
+
+  const rootUrl = siteMetadata.rootUrl;
+
+  ogImage = rootUrl + (ogImage || data.file.childImageSharp.fixed.src);
 
   return (
     <Helmet
@@ -33,7 +47,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -41,7 +55,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title} | ${siteMetadata.title}`,
         },
         {
           property: `og:description`,
@@ -49,23 +63,15 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: ogType || `website`,
+        },
+        {
+          property: `og:image`,
+          content: ogImage,
         },
         {
           name: `twitter:card`,
           content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
         },
       ]
         .concat(
@@ -93,6 +99,8 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  ogImage: PropTypes.string,
+  ogType: PropTypes.string,
 };
 
 export default SEO;
