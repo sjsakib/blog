@@ -9,6 +9,9 @@ image: "../images/gatsby-astronaut.png"
 ![Image](../images/gatsby-astronaut.png)
 
 👍
+;)
+(y) 
+:D
 
 
 ```jsx{numberLines: true}

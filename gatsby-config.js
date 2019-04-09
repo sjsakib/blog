@@ -37,7 +37,12 @@ module.exports = {
               maxWidth: 740,
             },
           },
-          `gatsby-remark-emoji`,
+          {
+            resolve: `gatsby-remark-emoji`,
+            options: {
+              ascii: true,
+            },
+          },
         ],
       },
     },
