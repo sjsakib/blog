@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Sharfin Jahan Sakib`,
-    description: "Passionate programmer, full stack web developer. Also goes by the handle 'sjsakib' on many platforms.",
+    description:
+      "Passionate programmer, full stack web developer. Also goes by the handle 'sjsakib' on many platforms.",
     author: `Sharfin Janhan Sakib`,
 
     rootUrl: `https://sakib.dev`,
@@ -36,6 +37,7 @@ module.exports = {
               maxWidth: 740,
             },
           },
+          `gatsby-remark-emoji`,
         ],
       },
     },
