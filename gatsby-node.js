@@ -11,6 +11,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve(`src/templates/postTemplate.js`);
+  const tagTemplate = path.resolve(`src/templates/tagTemplate.js`);
 
   return graphql(`
     {
@@ -22,6 +23,18 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              tags
+            }
+          }
+        }
+      }
+      allMediumPost {
+        edges {
+          node {
+            virtuals {
+              tags {
+                slug
+              }
             }
           }
         }
@@ -31,8 +44,11 @@ exports.createPages = ({ actions, graphql }) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
-
+    const allTags = new Set();
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const { tags } = node.frontmatter;
+      tags && tags.forEach(t => allTags.add(t));
+      
       if (node.frontmatter.path) {
         createPage({
           path: node.frontmatter.path,
@@ -40,6 +56,19 @@ exports.createPages = ({ actions, graphql }) => {
           context: {}, // additional data can be passed via context
         });
       }
+    });
+
+    result.data.allMediumPost.edges.forEach(({ node }) => {
+      const { tags } = node.virtuals;
+      tags && tags.forEach(t => allTags.add(t.slug));
+    });
+
+    allTags.forEach(tag => {
+      createPage({
+        path: '/tags/' + tag,
+        component: tagTemplate,
+        context: { tag },
+      });
     });
   });
 };

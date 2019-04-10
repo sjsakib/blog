@@ -9,11 +9,7 @@ title: ...
 subtitle: ...
 
 tags:
-  - react
-  - node
-  - express
-  - mongo
-  - socket.io
+  - template
 
 image: 
 
