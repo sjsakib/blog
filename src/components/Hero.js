@@ -9,15 +9,21 @@ const inRange = (x, a, b) => a <= x && x <= b;
 const Hero = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    setTimeout(() => {
+    const tt = setTimeout(() => {
       setCount(count + 1);
     }, 1000);
+
+    return () => {
+      clearTimeout(tt);
+    };
   });
+
   const iAm = [
     'A problem solver',
     'A passionate programmer',
     'A full stack developer',
   ];
+
   return (
     <section id="hero">
       <Zoom cascade ssrReveal duration={500}>
@@ -41,7 +47,7 @@ const Hero = () => {
             collapse
             ssrReveal
           >
-            <h2>{x}</h2>
+            <h3>{x}</h3>
           </Zoom>
         ))}
       </div>
