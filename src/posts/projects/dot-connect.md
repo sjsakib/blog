@@ -33,13 +33,9 @@ A turn based two player game built on MERN stack technologies. This was my first
 ## Features
 
 - Play online against a friend in real time. Create a game and send the link to a friend.
-
 - Play with strangers from lobby.
-
 - Watch games being played by others. Well, that was an unintended feature 😛
-
 - Sign in with facebook to save progress and scores.
-
 - Compete in the _Top chart_
 
 ## Rules of the game
