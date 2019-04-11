@@ -20,6 +20,7 @@ const Hero = () => {
 
   const iAm = [
     'A problem solver',
+    'A self learner',
     'A passionate programmer',
     'A full stack developer',
   ];
@@ -52,7 +53,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <Zoom ssrReveal delay={12000}>
+      <Zoom ssrReveal delay={(4.5 + iAm.length * 3) * 1000}>
         <a href="/#about" className="arrow-down-link">
           <FaLongArrowAltDown className="arrow-down" />
         </a>
