@@ -24,6 +24,8 @@ gallery:
   - ../../images/dotconnect/waiting.png
   - ../../images/dotconnect/playing.png
   - ../../images/dotconnect/topchart.png
+
+allowComments: true
 ---
 
 A turn based two player game built on MERN stack technologies. This was my first project with react. Since it was my first serious JavaScript project, I tried to use as less packages as possible so that I could learn and understand things deeply. But this was obviously a bad idea. I didn't even use basic packages like _body-parser_. This project seems very crude now. Maybe I'll update it someday.
@@ -85,5 +87,3 @@ yarn start
 ```
 
 An internet connection is required for the app to work. Because it uses a sandbox database instance from [mlab](https://mlab.com/) instead of local installation of Mongo.
-
----

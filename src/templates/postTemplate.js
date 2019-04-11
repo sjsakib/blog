@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { FaTags, FaRegCalendarAlt } from 'react-icons/fa';
+import { FacebookProvider, Comments, Like } from 'react-facebook';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -9,7 +10,16 @@ import '../components/styles/post.scss';
 export default ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, subtitle, date, tags, image } = frontmatter;
+  const {
+    path,
+    title,
+    subtitle,
+    date,
+    tags,
+    image,
+    allowComments,
+  } = frontmatter;
+  const { rootUrl, fbAppId } = data.site.siteMetadata;
   return (
     <Layout>
       <SEO
@@ -45,6 +55,18 @@ export default ({ data }) => {
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        {allowComments && fbAppId && (
+          <div className="fb">
+            <FacebookProvider appId={fbAppId}>
+              <Like href={rootUrl + path} showFaces share />
+              <Comments
+                className="fb-comments"
+                href={rootUrl + path}
+                width="100%"
+              />
+            </FacebookProvider>
+          </div>
+        )}
       </div>
     </Layout>
   );
@@ -52,6 +74,12 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
+    site {
+      siteMetadata {
+        rootUrl
+        fbAppId
+      }
+    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -67,6 +95,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        allowComments
       }
     }
   }

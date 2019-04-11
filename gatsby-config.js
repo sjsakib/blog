@@ -6,6 +6,7 @@ module.exports = {
     author: `Sharfin Janhan Sakib`,
 
     rootUrl: `https://sakib.dev`,
+    fbAppId: `328751384446361`
   },
 
   plugins: [
