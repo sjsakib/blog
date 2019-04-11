@@ -12,8 +12,4 @@ tags:
   - template
 
 image: 
-
-gallery:
-  - ../../images/dotconnect/home.png
-  - ../../images/dotconnect/create.png
 ---

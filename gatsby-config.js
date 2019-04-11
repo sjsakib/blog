@@ -62,7 +62,7 @@ module.exports = {
         short_name: `Sakib`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#fff`,
+        theme_color: `#333`,
         display: `minimal-ui`,
         icon: `src/images/face-circle.png`,
       },
