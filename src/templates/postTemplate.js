@@ -58,7 +58,7 @@ export default ({ data }) => {
         {allowComments && fbAppId && (
           <div className="fb">
             <FacebookProvider appId={fbAppId}>
-              <Like href={rootUrl + path} showFaces share />
+              <Like href={rootUrl + path} showFaces share  size="large" width="300"/>
               <Comments
                 className="fb-comments"
                 href={rootUrl + path}
