@@ -5,6 +5,8 @@ title:  "Scraping Light OJ: Part I"
 subtitle: Builing a scrapper to scrape the submitted solutions from LightOJ
 date:   2017-10-11
 tags: [scraping, python, cp, lightoj]
+
+mediumSlug: xxxx
 ---
 
 I've solved a number of problems in LightOJ. But never felt the necessity of saving the codes. I thought they are always available there, I can grab them anytime. But now that I've discovered showing off codes in github is a super cool thing, what do I do? Go to LightOJ and copy and paste all the AC codes? :astonished:

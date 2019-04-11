@@ -19,6 +19,7 @@ export default ({ perPage = 9, perRow = 3 }) => {
               title
               subtitle
               tags
+              mediumSlug
               image {
                 childImageSharp {
                   fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
@@ -57,14 +58,26 @@ export default ({ perPage = 9, perRow = 3 }) => {
     }
   `);
   const allTags = {};
+  const mediumSlugs = []; // of posts that are also published on Medium
   let posts = data.allMarkdownRemark.edges.map(edge => {
     const { id, frontmatter } = edge.node;
-    const { date, dateString, title, subtitle, image, path, tags } = frontmatter;
+    const {
+      date,
+      dateString,
+      title,
+      subtitle,
+      image,
+      path,
+      tags,
+      mediumSlug,
+    } = frontmatter;
 
     tags &&
       tags.forEach(t => {
         allTags[t] = allTags[t] + 1 || 1;
       });
+
+    mediumSlug && mediumSlugs.push(mediumSlug);
 
     return {
       id,
@@ -79,26 +92,36 @@ export default ({ perPage = 9, perRow = 3 }) => {
   });
 
   posts = posts.concat(
-    data.allMediumPost.edges.map(edge => {
-      const { id, createdAt, dateString, title, image, uniqueSlug, virtuals } = edge.node;
-      const { subtitle, tags } = virtuals;
+    data.allMediumPost.edges
+      .filter(({ node }) => !mediumSlugs.includes(node.uniqueSlug))
+      .map(edge => {
+        const {
+          id,
+          createdAt,
+          dateString,
+          title,
+          image,
+          uniqueSlug,
+          virtuals,
+        } = edge.node;
+        const { subtitle, tags } = virtuals;
 
-      tags &&
-        tags.forEach(t => {
-          allTags[t.slug] = allTags[t.slug] + 1 || 1;
-        });
+        tags &&
+          tags.forEach(t => {
+            allTags[t.slug] = allTags[t.slug] + 1 || 1;
+          });
 
-      return {
-        id,
-        date: createdAt,
-        dateString,
-        title,
-        subtitle,
-        image: image && image.childImageSharp.fluid,
-        tags: tags ? tags.map(t => t.slug) : [],
-        href: 'https://medium.com/stories/' + uniqueSlug,
-      };
-    })
+        return {
+          id,
+          date: createdAt,
+          dateString,
+          title,
+          subtitle,
+          image: image && image.childImageSharp.fluid,
+          tags: tags ? tags.map(t => t.slug) : [],
+          href: 'https://medium.com/stories/' + uniqueSlug,
+        };
+      })
   );
 
   posts.sort((a, b) => b.date - a.date);
