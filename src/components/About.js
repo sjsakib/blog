@@ -12,21 +12,28 @@ const About = () => {
       <div className="about-body">
         <Fade up>
           <p>
-            I don't remember when and how I came to know about the kind of
-            machines they call computers. As far as I can remember, I had been
-            dreamig about workding with them. Every time I saw the movement of
-            the mouse cursor, heard the sound of a &lsquo;click&rsquo;,
-            something happened inside me. I got my first computer when I was
-            seventeen.
+            Ever since I was a kid, when computers were not very common in the
+            country, I had a keen interest for those machines. I got my first
+            computer at the age of seventeen and started coding since then. I'm
+            doing my graduation in Mathematics, but I'm eger to build a career
+            in IT.
           </p>
         </Fade>
         <Fade up>
           <p>
-            I'm doing my graduation in Mathematics, but as you might have
-            guessed, I'm eger to build a career in IT. If I've learned a single
-            thing in all those years, that is how to learn things. I'm a fast
-            learner and fast adopter. I can flexibly switch between
-            technologies. My current focus is frontend development.
+            C was the first programming language I taught myself. Later I tried
+            many different things: Processing (a variant of java), Python, PHP,
+            JavaScript. And related frameworks and technologies related to them.
+            I've also taught myself some basic CS topics in the way as well.
+            I've solved 350+ programming problems in various online judges. For
+            the last one year, I'm focused on JavaScript. I've built a few apps
+            using React and React Native.
+          </p>
+        </Fade>
+        <Fade up>
+          <p>
+            Some of the other things that interests me are history, ethnology,
+            languages, books, movies etc.
           </p>
         </Fade>
       </div>
