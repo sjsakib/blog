@@ -42,8 +42,8 @@ const Hero = () => {
             key={x}
             duration={500}
             when={
-              count > 3 &&
-              inRange((count + 4) % (iAm.length * 3), i * 3, i * 3 + 1)
+              count > 2 &&
+              inRange((count - 3) % (iAm.length * 3), i * 3, i * 3 + 1)
             }
             collapse
             ssrReveal
@@ -53,7 +53,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <Zoom ssrReveal delay={(4.5 + iAm.length * 3) * 1000}>
+      <Zoom ssrReveal delay={(3 + iAm.length * 3) * 1000}>
         <a href="/#about" className="arrow-down-link">
           <FaLongArrowAltDown className="arrow-down" />
         </a>
