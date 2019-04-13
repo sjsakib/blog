@@ -8,7 +8,7 @@ const BlogPage = () => (
   <Layout>
     <SEO title="Blog" />
     <div className="page">
-      <Blog perPage={1000} perRow={2} />
+      <Blog perPage={1000} perRow={1} />
     </div>
   </Layout>
 );
