@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default ({ perPage = 6, perRow = 3 }) => {
+export default ({ perPage = 6, perRow = 3, showTags = 8 }) => {
   const data = useStaticQuery(graphql`
     {
       allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
@@ -37,6 +37,7 @@ export default ({ perPage = 6, perRow = 3 }) => {
             id
             title
             uniqueSlug
+            detectedLanguage
             dateString: createdAt(formatString: "MMMM DD, YYYY")
             createdAt(formatString: "X")
             virtuals {
@@ -61,7 +62,7 @@ export default ({ perPage = 6, perRow = 3 }) => {
   const mediumSlugs = []; // of posts that are also published on Medium
   let posts = data.allMarkdownRemark.edges.map(edge => {
     const { id, frontmatter } = edge.node;
-    const {
+    let {
       date,
       dateString,
       title,
@@ -72,10 +73,13 @@ export default ({ perPage = 6, perRow = 3 }) => {
       mediumSlug,
     } = frontmatter;
 
-    tags &&
-      tags.forEach(t => {
-        allTags[t] = allTags[t] + 1 || 1;
-      });
+    tags = tags || [];
+
+    tags.forEach(t => {
+      allTags[t] = allTags[t] + 1 || 1;
+    });
+
+    tags.push('sakib.dev');
 
     mediumSlug && mediumSlugs.push(mediumSlug);
 
@@ -85,7 +89,7 @@ export default ({ perPage = 6, perRow = 3 }) => {
       dateString,
       title,
       subtitle,
-      tags: tags || [],
+      tags,
       image: image && image.childImageSharp.fluid,
       href: path,
     };
@@ -103,13 +107,19 @@ export default ({ perPage = 6, perRow = 3 }) => {
           image,
           uniqueSlug,
           virtuals,
+          detectedLanguage,
         } = edge.node;
-        const { subtitle, tags } = virtuals;
+        let { subtitle, tags } = virtuals;
 
-        tags &&
-          tags.forEach(t => {
-            allTags[t.slug] = allTags[t.slug] + 1 || 1;
-          });
+        tags = tags ? tags.map(t => t.slug) : [];
+
+        tags.forEach(t => {
+          allTags[t] = allTags[t] + 1 || 1;
+        });
+
+        tags.push('medium.com');
+        detectedLanguage &&
+          tags.push({ en: 'english', bn: 'bangla' }[detectedLanguage]);
 
         return {
           id,
@@ -118,7 +128,7 @@ export default ({ perPage = 6, perRow = 3 }) => {
           title,
           subtitle,
           image: image && image.childImageSharp.fluid,
-          tags: tags ? tags.map(t => t.slug) : [],
+          tags,
           href: 'https://medium.com/stories/' + uniqueSlug,
         };
       })
@@ -129,19 +139,30 @@ export default ({ perPage = 6, perRow = 3 }) => {
   return (
     <section id="blog">
       <h1>Blog</h1>
-      <div className="space" />
       <FilteredPosts
         posts={posts}
         tags={allTags}
         perRow={perRow}
         perPage={perPage}
+        showTags={showTags}
+        specialTags={['english', 'bangla', 'sakib.dev', 'medium.com']}
       />
     </section>
   );
 };
 
-const FilteredPosts = ({ posts, tags, perRow, perPage = 10, showTags = 8 }) => {
-  tags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
+const FilteredPosts = ({
+  posts,
+  tags,
+  perRow,
+  perPage = 10,
+  showTags = 8,
+  specialTags,
+}) => {
+  tags = Object.keys(tags)
+    .filter(t => !specialTags.includes(t))
+    .sort((a, b) => tags[b] - tags[a]);
+
   const [selected, setSelected] = useState({});
   const [tagsMore, setTagsMore] = useState(false);
 
@@ -151,21 +172,25 @@ const FilteredPosts = ({ posts, tags, perRow, perPage = 10, showTags = 8 }) => {
     )
   );
 
+  const renderTags = (tags, x) =>
+    tags.slice(0, x).map(t => (
+      <span
+        className={'tag ' + (selected[t] ? ' selected' : '')}
+        key={t}
+        onClick={() => {
+          setSelected({ ...selected, [t]: !selected[t] });
+        }}
+      >
+        {t}
+      </span>
+    ));
+
   return (
     <div>
-      <div>
-        {tags.slice(0, tagsMore ? tags.length : showTags).map(t => (
-          <span
-            className={'tag ' + (selected[t] ? ' selected' : '')}
-            key={t}
-            onClick={() => {
-              setSelected({ ...selected, [t]: !selected[t] });
-            }}
-          >
-            {t}
-          </span>
-        ))}
+      <div className="special-tags">
+        {renderTags(specialTags, Number.MAX_VALUE)}
       </div>
+      <div>{renderTags(tags, tagsMore ? tags.length : showTags)}</div>
       <span onClick={() => setTagsMore(!tagsMore)} className="tag">
         {tagsMore ? (
           <>

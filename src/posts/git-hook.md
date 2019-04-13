@@ -5,7 +5,7 @@ type: post
 title: Git Hook with Python
 subtitle: Creating Git hooks with python to automate stuffs.
 date: 2017-10-15
-tags: [git, git-hooks, python]
+tags: [git, git-hooks, python, english]
 ---
 
 Github pages are awesome, I loved them the instance I got to know about them. You put some `.md` files in your project, go to project settings, turn on github pages and voila! You have a shiny website.

@@ -4,7 +4,7 @@ type: post
 title:  "Scraping Light OJ: Part I"
 subtitle: Builing a scrapper to scrape the submitted solutions from LightOJ
 date:   2017-10-11
-tags: [scraping, python, cp, lightoj]
+tags: [scraping, python, cp, lightoj, english]
 
 mediumSlug: xxxx
 ---

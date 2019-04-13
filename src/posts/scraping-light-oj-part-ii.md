@@ -4,7 +4,7 @@ type: post
 title: 'Scraping Light OJ: Part II'
 date: 2017-10-11
 subtitle: Builing a scrapper to scrape the submitted solutions from LightOJ
-tags: [scraping, python, cp, lightoj]
+tags: [scraping, python, cp, lightoj, english]
 ---
 
 Previously we just yielded all our data to scrapy and scrapy saved them in a json file. Now we'll process our data in our own way. For that we have to write a `pipeline`.
