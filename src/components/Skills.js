@@ -39,7 +39,8 @@ export default () => {
               <h4>Design</h4>
               <p>
                 I have the necessary skills in HTML and CSS to implement a
-                design.
+                design. I've worked with bootstrap, bulma, semantic-ui css
+                frameworks. I'm also familliar with sass.
               </p>
             </div>
           </Zoom>
@@ -51,7 +52,9 @@ export default () => {
               <h4>React and React Native</h4>
               <p>
                 I've been working with both these frameworks for over a year
-                now. So far I've published two apps in Google Play.
+                now. I've worked with most of the technologies related with
+                react, like redux, react-router, nextjs, jest, enzyme etc. So
+                far I've published two apps in Google Play.
               </p>
             </div>
           </Zoom>
@@ -77,7 +80,6 @@ export default () => {
                 Python is my favorite programming languange. I prefer python for
                 solving problems in online judges. I've worked with django,
                 selenium, scrapy, fabric, beautiful soup, tkinter in the past.
-                But didn't continue along that line.
               </p>
             </div>
           </Zoom>
@@ -88,9 +90,9 @@ export default () => {
               <FaEllipsisH className="skill-icon" />
               <h4>Others</h4>
               <p>
-                Besides these, I have some basic DevOps skills I've deployed
-                django and node projects in VPS. I'm used to git, linux
-                shell, yarn npm etc.
+                Besides these, I have some basic DevOps skills. I've deployed
+                django and node projects to VPS. I'm used to git, linux shell,
+                yarn npm etc.
               </p>
             </div>
           </Zoom>

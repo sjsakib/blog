@@ -35,7 +35,8 @@
   }
 
   .nav-link:hover {
-    background-color: $button-hover-color;
+    // background-color: $button-hover-color;
+    text-shadow: 0 0 1px #222;
   }
 
   .nav-link.active {
