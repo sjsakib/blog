@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { FaTags, FaRegCalendarAlt } from 'react-icons/fa';
+import { FaTags, FaCalendarAlt } from 'react-icons/fa';
 import { FacebookProvider, Comments, Like } from 'react-facebook';
 
 import Layout from '../components/layout';
@@ -47,7 +47,7 @@ export default ({ data }) => {
               )}
             </span>
             <span className="post-meta">
-              <FaRegCalendarAlt /> {date}
+              <FaCalendarAlt /> {date}
             </span>
           </p>
         </div>
