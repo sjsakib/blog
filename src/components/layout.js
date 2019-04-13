@@ -39,7 +39,9 @@ const Layout = ({ children }) => {
       <Container fluid>{children}</Container>
       <div className="divider" />
       <footer>
+        <a href="https://github.com/sjsakib/blog">Fork it</a> <br />
         Powered by <a href="https://www.gatsbyjs.org/">Gatsby</a>
+        <br />
       </footer>
     </div>
   );
