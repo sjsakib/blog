@@ -19,9 +19,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
-        plugins: [
+        extensions: [".mdx", ".md"],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -35,7 +36,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 740,
+              sizeByPixelDensity: true,
+              maxWidth: 1035,
+              showCaptions: true,
             },
           },
           {

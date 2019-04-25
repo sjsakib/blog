@@ -13,7 +13,7 @@ export default props => {
 
   const mediumSlugs = [];
 
-  let posts = data.allMarkdownRemark.edges.map(edge => {
+  let posts = data.allMdx.edges.map(edge => {
     const { id, frontmatter } = edge.node;
     const {
       date,
@@ -110,7 +110,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }) {
+    allMdx(filter: { frontmatter: { tags: { in: [$tag] } } }) {
       edges {
         node {
           id

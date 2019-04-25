@@ -15,7 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -45,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
     const allTags = new Set();
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMdx.edges.forEach(({ node }) => {
       const { tags } = node.frontmatter;
       tags && tags.forEach(t => allTags.add(t));
       

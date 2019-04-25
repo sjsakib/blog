@@ -2,14 +2,15 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { FaTags, FaCalendarAlt } from 'react-icons/fa';
 import { FacebookProvider, Comments, Like } from 'react-facebook';
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import '../components/styles/post.scss';
 
 export default ({ data }) => {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { mdx } = data;
+  const { frontmatter, code } = mdx;
   const {
     path,
     title,
@@ -34,7 +35,7 @@ export default ({ data }) => {
           <p>
             <span className="post-meta">
               {tags && (
-                <>
+                <React.Fragment>
                   <FaTags />{' '}
                   {tags
                     .map(t => (
@@ -43,7 +44,7 @@ export default ({ data }) => {
                       </Link>
                     ))
                     .reduce((prev, next) => [prev, ', ', next])}
-                </>
+                </React.Fragment>
               )}
             </span>
             <span className="post-meta">
@@ -51,10 +52,11 @@ export default ({ data }) => {
             </span>
           </p>
         </div>
-        <div
+        <MDXRenderer>{code.body}</MDXRenderer>
+        {/*<div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
-        />
+        />*/}
         {allowComments && fbAppId && (
           <div className="fb">
             <FacebookProvider appId={fbAppId}>
@@ -80,8 +82,10 @@ export const pageQuery = graphql`
         fbAppId
       }
     }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      code {
+        body
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

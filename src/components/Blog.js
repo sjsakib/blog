@@ -8,7 +8,7 @@ import PostCard from './PostCard';
 export default ({ perPage = 6, perRow = 3, showTags = 8 }) => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: { frontmatter: { type: { eq: "post" } } }) {
+      allMdx(filter: { frontmatter: { type: { eq: "post" } } }) {
         edges {
           node {
             id
@@ -60,7 +60,7 @@ export default ({ perPage = 6, perRow = 3, showTags = 8 }) => {
   `);
   const allTags = {};
   const mediumSlugs = []; // of posts that are also published on Medium
-  let posts = data.allMarkdownRemark.edges.map(edge => {
+  let posts = data.allMdx.edges.map(edge => {
     const { id, frontmatter } = edge.node;
     let {
       date,

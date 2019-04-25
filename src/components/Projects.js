@@ -7,7 +7,7 @@ import PostCard from './PostCard';
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(
+      allMdx(
         filter: { frontmatter: { type: { eq: "project" } } }
         sort: { fields: [frontmatter___order], order: ASC }
       ) {
@@ -33,7 +33,7 @@ export default () => {
       }
     }
   `);
-  const posts = data.allMarkdownRemark.edges.map(edge => {
+  const posts = data.allMdx.edges.map(edge => {
     const { title, subtitle, image, path } = edge.node.frontmatter;
     const {id}  = edge.node;
     return (
