@@ -4,7 +4,7 @@ type: post
 
 title: Built my portfolio with Gatsby
 
-subtitle: So now that I have this cool domain name, the task of building a portfolio could no longer be procrastinated. I was already a fan of static site generation.  So, obviously I chose Gatsby.
+subtitle: So now that I had this cool domain name, the task of building a portfolio could no longer be procrastinated. I was already a fan of static site generation. So, obviously I chose Gatsby to build the site.
 
 image: ./gatsby.jpg
 
@@ -27,37 +27,35 @@ So now that I had this cool domain name, the task of building a portfolio could 
 
 ### Do I need a blog?
 
-The primary purpose of the site is to show off my projects and skills. And I am writing on [Medium](https://medium.com/@sjsakib) for a while now. The question is do I need a personal blog? I mean what's the point of writing on a personal blog that no one would visit when I can write on medium and get a good channel to reach readers? But then when I write on medium, it doesn't feel like the contents are totally mine.
+The primary purpose of the site is to show off my projects and skills. The question is, do I need a personal blog? I am writing on [Medium](https://medium.com/@sjsakib) for a while now. What's the point of writing on a personal blog that no one would visit when I can write on medium and get a good channel to reach readers? But then when I write on medium, it doesn't feel like the contents are totally mine.
 
-So what I decided was from now on, I will write on my personal blog and then I will import the articles on medium.
+So what I decided was that, from now on, I will write on my personal blog and then I will import the articles on medium.
 
-### Blogging with Gatsby
-
-Adding a blog to a Gatsby site is easy. There are many ways, I went for [Mdx](https://github.com/ChristopherBiscardi/gatsby-mdx). With that, I write my blog posts in `.md` or `.mdx` with additional info in _frontmatter_. Then using the node API of Gatsby, I query for every post file in the filesystem and create a static page for every post using a template. And if I want, I can import and drop React components in my markdown. Like this one:
+Adding a blog to a Gatsby site is easy. There are many ways, I went for [Mdx](https://github.com/ChristopherBiscardi/gatsby-mdx). With that, I write my blog posts in `.md` or `.mdx` file with additional info in _frontmatter_. Then using the node API of Gatsby, I query for every post file in the filesystem and create a static page for every post using a template. And if I want, I can import and drop React components in my markdown. Like this one:
 
 <Tree />
 
 It's cool. Right?
 
-I also pull my medium posts, and link them from the site. If a post is published both on medium and this site, I add the medium slug of the post in the frontmatter of the `.md` file. So, no duplicate posts are shown.
+I also pull my medium posts and link them from the site. If a post is published both on medium and this site, I add the medium slug of the post in the frontmatter of the `.md` file. So, no duplicate posts are shown.
 
 ### Images
 
-The cool thing about Gatsby is that there's a lot of plugins out there that has already solved most common problems for you. Like optimizing images. With [this](https://www.gatsbyjs.org/packages/gatsby-remark-images/) plugin, I can drop images of any quality in my source directory and then query only for the size I want to use, or for a set of url to different sizes of the image. So in smaller or low res displays smaller size of the image is loaded. This gives the site a performance boost. It uses [sharp](https://github.com/lovell/sharp) internally to process the images. I can also crop the image [smartly](http://sharp.pixelplumbing.com/en/stable/api-resize/). I was blown away by how much this plugin does.
+The cool thing about Gatsby is that there's a lot of plugins out there that has already solved the most common problems for you. Like optimizing images. With [this](https://www.gatsbyjs.org/packages/gatsby-remark-images/) plugin, I can drop images of any size in my source directory and then query for only for the size I want to use, or for a set of url to different sizes of the image. So in smaller or low res displays only smaller size of the image is loaded. This gives the site a performance boost. It uses [sharp](https://github.com/lovell/sharp) internally to process the images. I can also crop the image [smartly](http://sharp.pixelplumbing.com/en/stable/api-resize/). And when the images are being loaded, a vector trace of the image is shown, just like medium. I was blown away by how much this plugin can do.
 
 ### Design
 
-I'm not very good with design. I can tell when design looks good. But I don't know how to _make_ a design look good. But this time, instead of just grabbing a free template, I tried actually to design the site myself.
+I'm not very good with design. I can tell a when design looks good. But I don't know how to _make_ a design look good. But this time, instead of just grabbing a free template, I tried actually to design the site myself.
 
 Since Gatsby lets you use react, you get to use all the libraries written for react. So I just grabbed [react-reveal](https://www.react-reveal.com/) for some cool animations.
 
 ### Deploying
 
-Deploying with CD was effortless with [netlify](https://www.netlify.com/).
+Deploying with CD was effortless with [netlify](https://www.netlify.com/). No configuration was needed at all.
 
 ### Some other features
 
-- All pages are pre-fetched with ajax. This comes out of the box with Gatsby. It's nice to see pages load instantly.
+- All pages are pre-fetched with ajax. This comes out of the box with Gatsby. It's nice to see pages loading instantly.
 
 - Syntax highlighting is done with [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/). I modified a prismjs theme for me.
 
@@ -65,6 +63,21 @@ Deploying with CD was effortless with [netlify](https://www.netlify.com/).
 
 - Wrote a small script to fetch the README files of my projects on GitHub and generate _project posts_ with them by adding additional info in the frontmatter.
 
+- Posts can be filtered via tags. There are some special tags that are added later to separate English and Bangla posts, posts from medium and posts from this site.
+
+### Thoughts on Gatsby
+
+So far I am very satisfied with Gatsby. Combined with a headless CMS, you can build any kind of site with Gatsby. I love the way they try to do most of the things on build time. The resulting site is blazing fast. 
+
+The only drawback is probably build speed. This site takes like 4-5 minutes to build on netlify. So if your site needs to update every few minutes, Gatsby is probably not for you.
+
+And even though the gatsby project is pretty old by now, the ecosystem is evolving pretty fast. It happened twice to me: I encountered a problem and found out that someone has created an issue reporting the same problem less than twenty four hours ago. I was amazed.
+
 ### Like it?
 
-If you like this site, feel free to clone it and customize it further for yourself. The source code is available [here](https://github.com/sjsakib/blog). Many things like social links, skills didn't have to be hard codded, but they are. Sorry about that.
+If you like this site, feel free to clone it and customize it further for yourself. The source code is available [here](https://github.com/sjsakib/blog). Many things like social links, intro, skills didn't have to be hard codded, but they are. Sorry about that.
+
+---
+
+So what do you think? Are you building your next site with Gatsby? And please let me know if you have any advice or suggestions for me.
+
