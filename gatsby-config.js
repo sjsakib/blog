@@ -45,8 +45,11 @@ module.exports = {
             resolve: `gatsby-remark-emoji`,
             options: {
               ascii: true,
+              emojiConversion: 'shortnameToUnicode',
             },
           },
+          `gatsby-plugin-catch-links`,
+          `gatsby-remark-external-links`
         ],
       },
     },

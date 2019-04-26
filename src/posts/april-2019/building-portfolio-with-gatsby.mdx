@@ -1,0 +1,70 @@
+---
+path: /blog/built-my-portfolio-with-gatsby
+type: post
+
+title: Built my portfolio with Gatsby
+
+subtitle: So now that I have this cool domain name, the task of building a portfolio could no longer be procrastinated. I was already a fan of static site generation.  So, obviously I chose Gatsby.
+
+image: ./gatsby.jpg
+
+date: 2019-04-11
+
+tags:
+  - blog
+  - portfolio
+  - gatsby
+  - english
+
+allowComments: true
+---
+
+import Tree from './Tree';
+
+When I saw that `sakib.dev` was available, I couldn't resist myself. How could I? A `.dev` with just my short name, can you believe it? Even though I already had a domain name, I purchased it.
+
+So now that I had this cool domain name, the task of building a portfolio could no longer be procrastinated. I was already a fan of static site generation. I used [jekyll](https://jekyllrb.com/) in the past. So, obviously I chose [Gatsby](https://www.gatsbyjs.org/).
+
+### Do I need a blog?
+
+The primary purpose of the site is to show off my projects and skills. And I am writing on [Medium](https://medium.com/@sjsakib) for a while now. The question is do I need a personal blog? I mean what's the point of writing on a personal blog that no one would visit when I can write on medium and get a good channel to reach readers? But then when I write on medium, it doesn't feel like the contents are totally mine.
+
+So what I decided was from now on, I will write on my personal blog and then I will import the articles on medium.
+
+### Blogging with Gatsby
+
+Adding a blog to a Gatsby site is easy. There are many ways, I went for [Mdx](https://github.com/ChristopherBiscardi/gatsby-mdx). With that, I write my blog posts in `.md` or `.mdx` with additional info in _frontmatter_. Then using the node API of Gatsby, I query for every post file in the filesystem and create a static page for every post using a template. And if I want, I can import and drop React components in my markdown. Like this one:
+
+<Tree />
+
+It's cool. Right?
+
+I also pull my medium posts, and link them from the site. If a post is published both on medium and this site, I add the medium slug of the post in the frontmatter of the `.md` file. So, no duplicate posts are shown.
+
+### Images
+
+The cool thing about Gatsby is that there's a lot of plugins out there that has already solved most common problems for you. Like optimizing images. With [this](https://www.gatsbyjs.org/packages/gatsby-remark-images/) plugin, I can drop images of any quality in my source directory and then query only for the size I want to use, or for a set of url to different sizes of the image. So in smaller or low res displays smaller size of the image is loaded. This gives the site a performance boost. It uses [sharp](https://github.com/lovell/sharp) internally to process the images. I can also crop the image [smartly](http://sharp.pixelplumbing.com/en/stable/api-resize/). I was blown away by how much this plugin does.
+
+### Design
+
+I'm not very good with design. I can tell when design looks good. But I don't know how to _make_ a design look good. But this time, instead of just grabbing a free template, I tried actually to design the site myself.
+
+Since Gatsby lets you use react, you get to use all the libraries written for react. So I just grabbed [react-reveal](https://www.react-reveal.com/) for some cool animations.
+
+### Deploying
+
+Deploying with CD was effortless with [netlify](https://www.netlify.com/).
+
+### Some other features
+
+- All pages are pre-fetched with ajax. This comes out of the box with Gatsby. It's nice to see pages load instantly.
+
+- Syntax highlighting is done with [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/). I modified a prismjs theme for me.
+
+- Comments are handled with facebook comments plugin.
+
+- Wrote a small script to fetch the README files of my projects on GitHub and generate _project posts_ with them by adding additional info in the frontmatter.
+
+### Like it?
+
+If you like this site, feel free to clone it and customize it further for yourself. The source code is available [here](https://github.com/sjsakib/blog). Many things like social links, skills didn't have to be hard codded, but they are. Sorry about that.

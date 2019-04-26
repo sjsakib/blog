@@ -19,6 +19,7 @@ export default () => {
               title
               subtitle
               tags
+              dateString: date(formatString: "MMMM, YYYY")
               image {
                 childImageSharp {
                   fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
@@ -34,8 +35,8 @@ export default () => {
     }
   `);
   const posts = data.allMdx.edges.map(edge => {
-    const { title, subtitle, image, path } = edge.node.frontmatter;
-    const {id}  = edge.node;
+    const { title, subtitle, image, path, dateString } = edge.node.frontmatter;
+    const { id } = edge.node;
     return (
       <Col lg={6} md={6} key={id}>
         <PostCard
@@ -43,6 +44,7 @@ export default () => {
           subtitle={subtitle}
           image={image && image.childImageSharp.fluid}
           href={path}
+          dateString={dateString}
         />
       </Col>
     );
