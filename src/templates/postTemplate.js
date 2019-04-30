@@ -2,10 +2,11 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { FaTags, FaCalendarAlt } from 'react-icons/fa';
 import { FacebookProvider, Comments, Like } from 'react-facebook';
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Subscribe from '../components/subscribe';
 import '../components/styles/post.scss';
 
 export default ({ data }) => {
@@ -19,6 +20,7 @@ export default ({ data }) => {
     tags,
     image,
     allowComments,
+    type,
   } = frontmatter;
   const { rootUrl, fbAppId } = data.site.siteMetadata;
   return (
@@ -53,14 +55,17 @@ export default ({ data }) => {
           </p>
         </div>
         <MDXRenderer>{code.body}</MDXRenderer>
-        {/*<div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />*/}
+        {type === 'post' && <Subscribe />}
         {allowComments && fbAppId && (
           <div className="fb">
             <FacebookProvider appId={fbAppId}>
-              <Like href={rootUrl + path} showFaces share  size="large" width="300"/>
+              <Like
+                href={rootUrl + path}
+                showFaces
+                share
+                size="large"
+                width="300"
+              />
               <Comments
                 className="fb-comments"
                 href={rootUrl + path}
@@ -92,6 +97,7 @@ export const pageQuery = graphql`
         title
         subtitle
         tags
+        type
         image {
           childImageSharp {
             fixed(width: 2400, height: 1260) {

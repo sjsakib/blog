@@ -64,10 +64,13 @@ export default props => {
         };
       })
   );
-  const title = 'Tag: ' + tag;
+  
+  posts.sort((a, b) => b.date - a.date);
+
+  const title = `Tag: ${tag}`;
   return (
     <Layout>
-      <SEO title={title} description={'All posts tagged: ' + tag} />
+      <SEO title={title + ' | Blog'} description={'All posts tagged: ' + tag} />
       <div className="page">
         <section id="blog">
           <h1>{title}</h1>
