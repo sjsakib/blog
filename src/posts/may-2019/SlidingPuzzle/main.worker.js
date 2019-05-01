@@ -1,3 +1,4 @@
+import { solve } from './solve';
 import { move, sleep } from './utils';
 import { JUMBLE, SET_CONFIG } from './types';
 
