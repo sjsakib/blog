@@ -1,0 +1,30 @@
+.sliding-puzzle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .board {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 3rem 3rem 3rem;
+    grid-template-rows: 3rem 3rem 3rem;
+    grid-gap: .2rem;
+    width: 12rem;
+    height: 12rem;
+    flex-flow: row wrap;
+  }
+  .block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: #f5f5f5;
+    border-radius: .2rem;
+    box-shadow: 1px 1px 0.1rem rgba(0, 0, 0, 0.15);
+  }
+  .block.n0 {
+    background-color: white;
+    color: white;
+    box-shadow: none;
+  }
+}

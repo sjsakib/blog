@@ -1,4 +1,19 @@
 const path = require('path');
+const WorkerPlugin = require('worker-plugin');
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new WorkerPlugin(),
+    ],
+  });
+};
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -8,10 +23,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMdx(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
             frontmatter {
@@ -41,7 +53,7 @@ exports.createPages = ({ actions, graphql }) => {
     result.data.allMdx.edges.forEach(({ node }) => {
       const { tags } = node.frontmatter;
       tags && tags.forEach(t => allTags.add(t));
-      
+
       if (node.frontmatter.path) {
         createPage({
           path: node.frontmatter.path,
