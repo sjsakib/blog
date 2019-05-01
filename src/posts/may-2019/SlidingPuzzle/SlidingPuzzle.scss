@@ -1,16 +1,17 @@
 .sliding-puzzle {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+
   .board {
-    margin: auto;
     display: grid;
     grid-template-columns: 3rem 3rem 3rem;
     grid-template-rows: 3rem 3rem 3rem;
-    grid-gap: .2rem;
-    width: 12rem;
-    height: 12rem;
+    grid-gap: 0.2rem;
+    width: 9.5rem;
+    height: 9.5rem;
     flex-flow: row wrap;
+    margin-bottom: 1rem;
   }
   .block {
     display: flex;
@@ -19,12 +20,44 @@
     width: 3rem;
     height: 3rem;
     background-color: #f5f5f5;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     box-shadow: 1px 1px 0.1rem rgba(0, 0, 0, 0.15);
   }
   .block.n0 {
     background-color: white;
     color: white;
+    box-shadow: none;
+  }
+
+  .puzzle-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .solution {
+    width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: .2rem;
+    padding: 0.5rem;
+    margin: .5rem;
+    font-family: monospace;
+    text-align: center;
+  }
+  .p-button {
+    color: inherit;
+    text-transform: uppercase;
+    background-color: #f5f5f5;
+    padding: 0.4rem 1rem;
+    margin: 0.2rem;
+    border: none;
+    border-radius: 0.2rem;
+    box-shadow: 1px 1px 0.1rem rgba(0, 0, 0, 0.15);
+  }
+
+  .p-button:focus {
+    outline: none;
+  }
+  .p-button:active {
     box-shadow: none;
   }
 }

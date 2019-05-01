@@ -32,14 +32,19 @@ class Node {
   }
 }
 
-function bfs(node) {
+function dfs(node) {
   const stack = [node];
   const visited = new Set();
+
   while (stack.length >= 0) {
     const currentNode = stack.pop();
+
     if (currentNode.solved()) {
       return currentNode.getMoves();
     }
+
+    visited.add(currentNode.toString());
+
     currentNode.neighbors().forEach(node => {
       if (!visited.has(node.toString())) {
         stack.push(node);
@@ -49,12 +54,15 @@ function bfs(node) {
 }
 
 const methods = {
-  bfs,
+  dfs,
 };
 
 export default function solve(config, method) {
   const t1 = new Date();
-  const solution = methods[method](new Node(config));
+  const moves = methods[method](new Node(config));
   const time = (new Date() - t1) / 1000;
-  return { solution, time };
+  const str =
+    moves.slice(0, 20).join(' ') +
+    (moves.length > 20 ? ` ... (${moves.length - 20} more moves)` : '');
+  return { moves, time, str, method };
 }

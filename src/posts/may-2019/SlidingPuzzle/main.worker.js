@@ -1,11 +1,11 @@
-import { solve } from './solve';
-import { move, sleep } from './utils';
-import { JUMBLE, SET_CONFIG } from './types';
+import solve from './solve';
+import { move, sleep, moveMap, initialState } from './utils';
+import { JUMBLE, SET_CONFIG, SOLVE, SET_SOLUTION } from './types';
 
 onmessage = function({ data }) {
   if (data.action === JUMBLE) {
-    let { config, times = 50 } = data;
-    const moves = 'UDLR';
+    let { config, times = 10 } = data;
+    const moves = Object.values(moveMap);
     let count = 0;
     for (let i = 0; i < times; i++) {
       const newConfig = move(
@@ -21,5 +21,10 @@ onmessage = function({ data }) {
         count++;
       }
     }
+  }
+
+  if (data.action === SOLVE) {
+    const solution = solve(data.config, data.method);
+    postMessage({ action: SET_SOLUTION, solution });
   }
 };

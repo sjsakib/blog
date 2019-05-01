@@ -41,6 +41,7 @@
     "react-images": "^0.5.19",
     "react-reveal": "^1.2.2",
     "react-scrollspy": "^3.4.0",
+    "react-spinkit": "^3.0.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   },
