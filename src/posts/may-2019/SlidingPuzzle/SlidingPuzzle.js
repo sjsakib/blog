@@ -34,13 +34,16 @@ export default ({ methods, givenState, id }) => {
     return () => {
       worker.removeEventListener('message', listener);
     };
-  }, [solutions]);
+  }, [solutions, pendingSolution]);
 
   useEffect(() => {
     const listener = e => {
       if (keyMap[e.key]) e.preventDefault();
       const newConfig = move(config, keyMap[e.key]);
-      if (newConfig) setConfig(newConfig);
+      if (newConfig) {
+        setConfig(newConfig);
+        setSolutions([]);
+      }
     };
 
     document.addEventListener('keydown', listener);

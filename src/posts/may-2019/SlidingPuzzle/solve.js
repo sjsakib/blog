@@ -53,19 +53,21 @@ function dfs(node) {
 }
 
 function bfs(node) {
-  const q = [node];
-  const visited = new Set();
+  const toCheck = [node];
+  const checked = new Set();
 
-  while (q.length >= 0) {
-    const currentNode = q.shift();
+  while (toCheck.length > 0) {
+    const currentNode = toCheck.shift();
+    
     if (currentNode.solved()) {
       return currentNode.getMoves();
     }
-    visited.add(currentNode.toString());
+    
+    checked.add(currentNode.str);
 
     for (const node of currentNode.neighbors()) {
-      if (!visited.has(node.toString())) {
-        q.push(node);
+      if (!checked.has(node.str)) {
+        toCheck.push(node);
       }
     }
   }
@@ -82,6 +84,6 @@ export default function solve(config, method) {
   const time = (new Date() - t1) / 1000;
   const str =
     moves.slice(0, 20).join(' ') +
-    (moves.length > 20 ? ` ... (${moves.length - 20} more moves)` : '');
+    (moves.length > 25 ? `...(${moves.length - 25} more moves)` : '');
   return { moves, time, str, method };
 }
