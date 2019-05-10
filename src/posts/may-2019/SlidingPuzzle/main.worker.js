@@ -4,7 +4,7 @@ import { JUMBLE, SET_CONFIG, SOLVE, SET_SOLUTION } from './types';
 
 onmessage = function({ data }) {
   if (data.action === JUMBLE) {
-    let { config, times = 10 } = data;
+    let { config, times = 30 } = data;
     const moves = Object.values(moveMap);
     let count = 0;
     for (let i = 0; i < times; i++) {
@@ -16,7 +16,7 @@ onmessage = function({ data }) {
         config = newConfig;
 
         setTimeout(() => {
-          postMessage({ action: SET_CONFIG, config: newConfig });
+          postMessage({ action: SET_CONFIG, config: newConfig, id: data.id });
         }, count * 30);
         count++;
       }
@@ -25,6 +25,6 @@ onmessage = function({ data }) {
 
   if (data.action === SOLVE) {
     const solution = solve(data.config, data.method);
-    postMessage({ action: SET_SOLUTION, solution });
+    postMessage({ action: SET_SOLUTION, solution, id: data.id });
   }
 };

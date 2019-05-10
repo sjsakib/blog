@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Spinner from 'react-spinkit';
 
 import Board from './Board';
@@ -8,8 +8,8 @@ import './SlidingPuzzle.scss';
 
 let worker;
 
-export default ({ methods }) => {
-  const [config, setConfig] = useState(initialState);
+export default ({ methods, givenState, id }) => {
+  const [config, setConfig] = useState(givenState || initialState);
   const [solutions, setSolutions] = useState([]);
   const [pendingSolution, setPendingSolution] = useState(false);
 
@@ -18,13 +18,21 @@ export default ({ methods }) => {
   }, []);
 
   useEffect(() => {
-    worker.onmessage = ({ data }) => {
+    const listener = ({ data }) => {
+      if (data.id !== id) return;
+
       if (data.action === SET_CONFIG) setConfig(data.config);
 
       if (data.action === SET_SOLUTION) {
         setSolutions([data.solution, ...solutions]);
         setPendingSolution(false);
       }
+    };
+
+    worker.addEventListener('message', listener);
+
+    return () => {
+      worker.removeEventListener('message', listener);
     };
   }, [solutions]);
 
@@ -42,34 +50,33 @@ export default ({ methods }) => {
     };
   }, [config]);
 
-  const jumble = useCallback(() => {
-    worker.postMessage({ action: JUMBLE, config });
+  const jumble = () => {
+    worker.postMessage({ action: JUMBLE, config, id });
     setSolutions([]);
-  }, [config]);
+  };
 
-  const reset = useCallback(() => {
-    setConfig(initialState);
+  const reset = () => {
+    setConfig(givenState || initialState);
     setSolutions([]);
-  }, []);
+  };
 
-  const solve = useCallback(
-    e => {
-      if (config.join() === initialState.join()) return;
-      const method = e.target.dataset.method;
-      worker.postMessage({ action: SOLVE, config, method });
-      setPendingSolution(true);
-    },
-    [config]
-  );
+  const solve = e => {
+    if (config.join() === initialState.join()) return;
+    const method = e.target.dataset.method;
+    worker.postMessage({ action: SOLVE, config, method, id });
+    setPendingSolution(true);
+  };
 
   const testSolution = async moves => {
     setSolutions([]);
+    const waitTime = moves.length < 10 ? 500 : moves.length < 50 ? 200 : 50;
     let currentConfig = [...config];
     for (let i = 0; i < moves.length; i++) {
       const newConfig = move(currentConfig, moves[i]);
+      if (!newConfig) return;
       currentConfig = newConfig;
       setConfig(newConfig);
-      await sleep(100);
+      await sleep(waitTime);
     }
   };
 
@@ -92,9 +99,9 @@ export default ({ methods }) => {
         ))}
       </div>
 
-      <div className="space" />
-
-      {pendingSolution && <Spinner name="line-scale-pulse-out" color="#444" />}
+      {pendingSolution && (
+        <Spinner className="spinner" name="line-scale-pulse-out" color="#444" />
+      )}
 
       {solutions.map(s => (
         <div className="solution" key={s.str + s.method}>

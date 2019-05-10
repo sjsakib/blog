@@ -2,17 +2,16 @@ import { move, moveMap, initialState } from './utils';
 
 class Node {
   constructor(config, prev = null, move = null) {
+    if (!config) return;
+
     this.config = config;
+    this.str = config.join();
     this.move = move;
     this.prev = prev;
   }
 
-  toString() {
-    return this.config.join();
-  }
-
   solved() {
-    return this.toString() === initialState.join();
+    return this.str === initialState.join();
   }
 
   neighbors() {
@@ -33,28 +32,48 @@ class Node {
 }
 
 function dfs(node) {
-  const stack = [node];
-  const visited = new Set();
+  const toCheck = [node];
+  const checked = new Set();
 
-  while (stack.length >= 0) {
-    const currentNode = stack.pop();
+  while (toCheck.length > 0) {
+    const currentNode = toCheck.pop();
 
     if (currentNode.solved()) {
       return currentNode.getMoves();
     }
 
+    checked.add(currentNode.str);
+
+    for (const node of currentNode.neighbors()) {
+      if (!checked.has(node.str)) {
+        toCheck.push(node);
+      }
+    }
+  }
+}
+
+function bfs(node) {
+  const q = [node];
+  const visited = new Set();
+
+  while (q.length >= 0) {
+    const currentNode = q.shift();
+    if (currentNode.solved()) {
+      return currentNode.getMoves();
+    }
     visited.add(currentNode.toString());
 
-    currentNode.neighbors().forEach(node => {
+    for (const node of currentNode.neighbors()) {
       if (!visited.has(node.toString())) {
-        stack.push(node);
+        q.push(node);
       }
-    });
+    }
   }
 }
 
 const methods = {
   dfs,
+  bfs,
 };
 
 export default function solve(config, method) {
