@@ -12,7 +12,7 @@ pre[class*='language-'] {
   word-break: normal;
   font-family: 'Fira Code Medium', 'Consolas', 'Ubuntu Mono', monospace;
   font-size: 14px;
-  color: #76d9e6;
+  color: #a6accd;
   text-shadow: none;
 }
 pre[class*='language-'],
@@ -50,7 +50,7 @@ pre[class*='language-'] code {
 .token.operator,
 .token.boolean,
 .token.number {
-  color: #a77afe;
+  color: #c792ea;
 }
 .token.attr-name,
 .token.string {
@@ -71,7 +71,7 @@ pre[class*='language-'] code {
 .token.keyword,
 .token.important,
 .token.deleted {
-  color: #ef3b7d;
+  color: #c792ea;
 }
 .token.regex,
 .token.statement {
@@ -87,13 +87,21 @@ pre[class*='language-'] code {
   font-weight: bold;
 }
 .token.punctuation {
-  color: #bebec5;
+  color: #89ddff;
 }
 .token.entity {
   cursor: help;
 }
 .token.italic {
   font-style: italic;
+}
+
+/* new */
+.token.function {
+  color: #82aaff
+}
+.token.class-name {
+  color: #ffcb6b
 }
 
 code.language-markup {
@@ -113,7 +121,7 @@ code.language-markup .token.script {
   color: #76d9e6;
 }
 code.language-markup .token.script .token.keyword {
-  color: #76d9e6;
+  color: #c792ea;
 }
 
 /* Line highlight plugin */

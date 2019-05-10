@@ -43,7 +43,7 @@ export default () => {
       <p>
         If you liked this post, consider subscribing to my blog. I will notify
         you via email when I post a new article. I promise never to spam you, or
-        to share your your email with any third party.
+        to share your email with any third party.
       </p>
       {sent ? (
         <p>Thank you!</p>
