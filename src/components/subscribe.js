@@ -26,7 +26,7 @@ export default () => {
       setSent(true);
       window.localStorage.setItem('subscribed', 'true');
     });
-    window.ga && window.ga.send('send', 'event', 'Subscription', 'subscribe', 'Subscribe');
+    window.ga && window.ga('send', 'event', 'Subscription', 'subscribe', 'Subscribe');
   }, []);
 
   useEffect(() => {
