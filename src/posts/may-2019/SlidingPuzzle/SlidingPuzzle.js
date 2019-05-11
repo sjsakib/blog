@@ -39,6 +39,7 @@ export default ({ methods, givenState, id }) => {
   useEffect(() => {
     const listener = e => {
       if (keyMap[e.key]) e.preventDefault();
+      else return;
       const newConfig = move(config, keyMap[e.key]);
       if (newConfig) {
         setConfig(newConfig);
