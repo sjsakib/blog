@@ -1,0 +1,39 @@
+---
+path: /blog/my-netis/
+type: post
+
+title: Reverse engineering a netis router to build a mobile app for it
+subtitle: Netis routers are very popular in our country, at least in my town. But unlike other brands they don't come with is a mobile app. So I built one, with react native.
+
+date: 2019-07-05
+
+tags:
+  - react
+  - react-native
+
+allowComments: true
+---
+
+Netis routers are very popular in our country, at least in my town. Probably because of their lower price. But one convenience they don't come with is a mobile app. So I built one, with react native.
+
+### How?
+
+I noticed that the admin site works through ajax. Inspecting the source revealed that they are mostly using jQeury. First I tried to to read the source to extract an API. But even the very helpful Mandarin comments couldn't help me understand anything much.
+
+So what I did is, I headed to the network tab of dev tools. Only two end points. One `netcore_set` returns all informations of the router like from ssid, password to address reservation, mac filtering list and all. And there was another `netcore_set` endpoint do all the stuffs.
+
+The main two feature I wanted to implement was blocking device and setting speed limit on devices. And to set speed limit I had to reserve the IPs, because the routers doesn't support bandwidth control with mac. 
+
+So what I did was I did those things form the admin site and inspected the requests sent to the server in the router. Took some time to understand what parameter did what. Some of them were pretty weired. Like for sending a list of something say mac they send multiple parameters like `mac1`, `mac2`, `mac3` instead of using comma separated values or anything. And instead of using different end points they use a flag parameter to determine what a request does. Wish I could see how they implement all these in the backend.
+
+They rest was pretty easy. I wanted to build it as a PWA. But couldn't do so for CORS issues. So built it with react-native (expo).
+
+For now it supports a blocking devices, setting speed limit and changing network name and password. I might add few more features like blocking specific domains in the future.
+
+It might not work with different models or firmware versions of netis routers. If you happen to be using a netis router, why don't you give it a try? And if you find it useful, don't forget to give it a star on GitHub and then to give a rating on Google Play :)
+
+GitHub: [https://github.com/sjsakib/my-netis](https://github.com/sjsakib/my-netis)
+
+Google Play: [https://play.google.com/store/apps/details?id=dev.sakib.mynetis](https://play.google.com/store/apps/details?id=dev.sakib.mynetis)
+
+If you are using iOS, you can use the app using the Expo client. Download the Expo app form App Store and scan the QR code from [here](https://expo.io/@sjsakib/my-netis)
