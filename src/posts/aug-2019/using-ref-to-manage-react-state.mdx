@@ -33,7 +33,7 @@ function MyComponent() {
       const res = // calling api for `city` data
       setCityData({...cityData, [city.id]: res.data});
     });
-  });
+  }, []);
 
   return (...) // render UI
 }
@@ -62,7 +62,7 @@ function MyComponent() {
       cityData[city.id] = res.data;
       triggerUpdate(Math.random()); // The random thing is probably not necessary
     });
-  });
+  }, []);
 
   return (...) // render UI
 }
