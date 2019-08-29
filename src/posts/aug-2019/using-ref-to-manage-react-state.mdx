@@ -3,7 +3,7 @@ path: /blog/using-ref-to-manage-state/
 type: post
 
 title: Using ref to manage state with react hooks
-subtitle: Using ref to manage state with react hooks
+subtitle: Refs can be used to manage state in react apps with hooks
 
 date: 2019-08-29
 
@@ -14,6 +14,7 @@ tags:
   - hooks
 
 allowComments: true
+mediumSlug: using-ref-to-manage-state-with-react-hooks-4da7d874741d
 ---
 
 I was facing a problem, let's say at some point in a react app, I get a list of cities and I have to make individual API calls to fetch info about the cities. I want to update the UI whenever a single request completes.
@@ -55,9 +56,9 @@ function MyComponent() {
   useEffect(() => {
     const res = // calling api for city list
     setCityList(res.data);
+
     res.data.forEach(city => {
-      const res = // calling api for `city` data
-      
+      const res = // calling api for `city` data 
       cityData[city.id] = res.data;
       triggerUpdate(Math.random()); // The random thing is probably not necessary
     });
