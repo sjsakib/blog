@@ -1,0 +1,70 @@
+---
+path: /blog/using-ref-to-manage-state/
+type: post
+
+title: Using ref to manage state with react hooks
+subtitle: Using ref to manage state with react hooks
+
+date: 2019-08-29
+
+image: ./ref-state.png
+
+tags:
+  - react
+  - hooks
+
+allowComments: true
+---
+
+I was facing a problem, let's say at some point in a react app, I get a list of cities and I have to make individual API calls to fetch info about the cities. I want to update the UI whenever a single request completes.
+
+So the solution that comes to mind first is this:
+
+```js
+function MyComponent() {
+  const [cityList, setCityList] = useState([]);
+  const [cityData, setCityData] = useState({});
+  
+  useEffect(() => {
+    const res = // calling api for city list
+    setCityList(res.data);
+    res.data.forEach(city => {
+      const res = // calling api for `city` data
+      setCityData({...cityData, [city.id]: res.data});
+    });
+  });
+
+  return (...) // render UI
+}
+```
+
+As you will notice, this code doesn't work. Because the callback passed to `useEffect` will always have `cityData` from the first render, which is `{}`.  As a result, `cityData` will always have only the last received data.
+
+If we were using class based components, this wouldn't have been a problem. Because `this.state` always gives access to the latest state. 
+
+### So?
+
+What I did is kept the `cityData` in a ref. The [useRef](https://reactjs.org/docs/hooks-reference.html#useref) hook can be used for persisting mutable objects between renders while using hook based components. But updating that ref doesn't trigger a render. So I used a pseudo state to trigger update.
+
+```js
+function MyComponent() {
+  const [cityList, setCityList] = useState([]);
+  const cityData = useRef({}).current;
+  const [_, triggerUpdate] = useState(null);
+
+  useEffect(() => {
+    const res = // calling api for city list
+    setCityList(res.data);
+    res.data.forEach(city => {
+      const res = // calling api for `city` data
+      
+      cityData[city.id] = res.data;
+      triggerUpdate(Math.random()); // The random thing is probably not necessary
+    });
+  });
+
+  return (...) // render UI
+}
+```
+
+And it works. I'm not sure if it is the best solution. What do you think? See any flaws in the solution? How would you solve this specific problem?
