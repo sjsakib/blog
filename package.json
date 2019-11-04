@@ -30,6 +30,8 @@
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
     "node-sass": "^4.13.0",
+    "patch-package": "^6.2.0",
+    "postinstall-postinstall": "^2.0.0",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
@@ -45,7 +47,10 @@
     "react-typography": "^0.16.19",
     "typography": "^0.16.19"
   },
-  "resolutions": {"sharp": "^0.23.1", "node-sass": "^4.13.0"},
+  "resolutions": {
+    "sharp": "^0.23.1",
+    "node-sass": "^4.13.0"
+  },
   "devDependencies": {
     "prettier": "^1.16.4",
     "worker-plugin": "^3.1.0"
@@ -60,7 +65,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
