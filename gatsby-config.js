@@ -6,7 +6,7 @@ module.exports = {
     author: `Sharfin Janhan Sakib`,
 
     rootUrl: `https://sakib.dev`,
-    fbAppId: `328751384446361`
+    fbAppId: `328751384446361`,
   },
 
   plugins: [
@@ -19,9 +19,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-prismjs`,
@@ -49,7 +49,7 @@ module.exports = {
             },
           },
           `gatsby-plugin-catch-links`,
-          `gatsby-remark-external-links`
+          `gatsby-remark-external-links`,
         ],
       },
     },
@@ -93,7 +93,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-90813960-7",
+        trackingId: 'UA-90813960-7',
       },
     },
     /*{

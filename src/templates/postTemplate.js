@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { FaTags, FaCalendarAlt } from 'react-icons/fa';
 import { FacebookProvider, Comments, Like } from 'react-facebook';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -11,7 +11,7 @@ import '../components/styles/post.scss';
 
 export default ({ data }) => {
   const { mdx } = data;
-  const { frontmatter, code } = mdx;
+  const { frontmatter, body } = mdx;
   const {
     path,
     title,
@@ -54,7 +54,7 @@ export default ({ data }) => {
             </span>
           </p>
         </div>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
         {type === 'post' && <Subscribe />}
         {allowComments && fbAppId && (
           <div className="fb">
@@ -88,9 +88,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(frontmatter: { path: { eq: $path } }) {
-      code {
-        body
-      }
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
