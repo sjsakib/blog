@@ -36,7 +36,6 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              sizeByPixelDensity: true,
               maxWidth: 1035,
               showCaptions: true,
             },
@@ -96,12 +95,7 @@ module.exports = {
         trackingId: 'UA-90813960-7',
       },
     },
-    /*{
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },*/
+    'gatsby-plugin-eslint'
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

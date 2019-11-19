@@ -34,7 +34,7 @@ export default ({ methods, givenState, id }) => {
     return () => {
       worker.removeEventListener('message', listener);
     };
-  }, [solutions, pendingSolution]);
+  }, [solutions, pendingSolution, id]);
 
   useEffect(() => {
     const listener = e => {

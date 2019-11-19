@@ -2,7 +2,7 @@ import solve from './solve';
 import { move, sleep, moveMap, initialState } from './utils';
 import { JUMBLE, SET_CONFIG, SOLVE, SET_SOLUTION } from './types';
 
-onmessage = function({ data }) {
+onmessage = function ({ data }) {
   if (data.action === JUMBLE) {
     let { config, times = 30 } = data;
     const moves = Object.values(moveMap);
