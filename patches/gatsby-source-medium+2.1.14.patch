@@ -13,11 +13,14 @@ new mode 100755
 diff --git a/node_modules/gatsby-source-medium/gatsby-node.js b/node_modules/gatsby-source-medium/gatsby-node.js
 old mode 100644
 new mode 100755
-index 3ab21c6..e25511f
+index 3ab21c6..a78374d
 --- a/node_modules/gatsby-source-medium/gatsby-node.js
 +++ b/node_modules/gatsby-source-medium/gatsby-node.js
-@@ -3,8 +3,13 @@
+@@ -1,10 +1,16 @@
+ "use strict";
+ 
  const axios = require(`axios`);
++const fs = require('fs');
  
  const fetch = (username, limit = 100) => {
 -  const url = `https://medium.com/${username}/latest?format=json&limit=${limit}`;
