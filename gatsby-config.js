@@ -96,6 +96,12 @@ module.exports = {
         trackingId: 'UA-90813960-7',
       },
     },
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://www.google-analytics.com', 'https://fonts.gstatic.com', 'https://fonts.googleapis.com'],
+      },
+    },
     /*{
       resolve: `gatsby-plugin-typography`,
       options: {
