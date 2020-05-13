@@ -14,7 +14,7 @@ export default ({ title, subtitle, image, href, dateString }) => {
     ? {}
     : { target: '_blank', rel: 'noopener noreferrer' };
   return (
-    <Link className="card-link" to={href} href={href} {...attrs}>
+    <Link className="card-link" title={title} to={href} href={href} {...attrs}>
       <Zoom>
         <Card className="post-card">
           {image && <Img className="card-img-top" fluid={image} />}
