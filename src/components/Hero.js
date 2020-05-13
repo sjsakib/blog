@@ -54,7 +54,7 @@ const Hero = () => {
       </div>
 
       <Zoom ssrReveal delay={(3 + iAm.length * 3) * 1000}>
-        <a href="/#about" className="arrow-down-link">
+        <a href="/#about" className="arrow-down-link" title="More">
           <FaLongArrowAltDown className="arrow-down" />
         </a>
       </Zoom>
