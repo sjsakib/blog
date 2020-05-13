@@ -3,7 +3,7 @@ path: /projects/dot-connect
 type: project
 date: 2018-04-07
 
-order: 0
+order: 1
 
 title: DotConnect - The Game
 subtitle: A turn based two player game built on MERN stack technologies.
@@ -42,7 +42,7 @@ A turn based two player game built on MERN stack technologies. This was my first
 
 The game starts with a grid of dots. Each player in turn connects two dots vertically or horizontally. If this connection makes a box, he gets a point and another move. No move can be passed. When the grid is complete, the player with most points wins.
 
-[Live Demo](https://dot-connect.sjsakib.me)
+[Live Demo](https://dot-connect.sakib.dev)
 
 ## Key Technologies
 

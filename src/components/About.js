@@ -15,8 +15,7 @@ const About = () => {
             Ever since I was a kid, when computers were not very common in the
             country, I had a keen interest for those machines. I got my first
             computer at the age of seventeen and I've been coding since then.
-            I'm doing my graduation in Mathematics, but I'm eger to build a
-            career in IT.
+            I'm doing my graduation in Mathematics and besides that, I had been working for <a href="http://www.informatixbd.com/about-us/">Informatix Technologies</a> since May 2019.
           </p>
         </Fade>
         <Fade up>
@@ -26,8 +25,12 @@ const About = () => {
             JavaScript. And many related frameworks and technologies.
             I've taught myself some basic CS topics in the way as well.
             I've solved 350+ programming problems in various online judges. For
-            the last one year, I'm focused on JavaScript. I've built a few apps
-            using Node, Firebase, React and React Native.
+            the last two years, I'm focused on frontend development with JavaScript.
+          </p>
+        </Fade>
+        <Fade up>
+          <p>
+            I am a co-founder of <a href="https://shunboi.com/">ShunBoi</a>. I've developed the app frontend with react-native.
           </p>
         </Fade>
         <Fade up>
