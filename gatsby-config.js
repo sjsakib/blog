@@ -102,6 +102,20 @@ module.exports = {
         domains: ['https://www.google-analytics.com', 'https://fonts.gstatic.com', 'https://fonts.googleapis.com'],
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Quando`,
+          },
+          {
+            family: `Noticia Text`,
+          },
+        ],
+        fontDisplay: 'swap'
+      },
+    }
     /*{
       resolve: `gatsby-plugin-typography`,
       options: {
