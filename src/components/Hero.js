@@ -16,7 +16,7 @@ const Hero = () => {
     return () => {
       clearTimeout(tt);
     };
-  }, []);
+  });
 
   const iAm = [
     'A problem solver',
