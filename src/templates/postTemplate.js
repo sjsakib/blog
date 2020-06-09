@@ -41,7 +41,7 @@ export default ({ data }) => {
                   <FaTags />{' '}
                   {tags
                     .map(t => (
-                      <Link key={t} className="tag-link" to={`/tags/${t}`}>
+                      <Link key={t} className="tag-link" to={`/tags/${t}/`}>
                         {t}
                       </Link>
                     ))
