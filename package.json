@@ -29,7 +29,7 @@
     "gatsby-source-medium": "2.1.12",
     "gatsby-transformer-remark": "2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "patch-package": "^6.2.0",
     "postinstall-postinstall": "^2.0.0",
     "prismjs": "^1.17.1",
