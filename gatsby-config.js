@@ -36,7 +36,6 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              sizeByPixelDensity: true,
               maxWidth: 1035,
               showCaptions: true,
             },
@@ -60,8 +59,8 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

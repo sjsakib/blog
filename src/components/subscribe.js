@@ -6,7 +6,7 @@ const encode = data => {
     .join('&');
 };
 
-export default () => {
+export default function Subscribe() {
   const [subscribed, setSubscribed] = useState(false);
   const [buttonText, setButtonText] = useState('Subscribe');
   const [sent, setSent] = useState(false);
@@ -26,7 +26,8 @@ export default () => {
       setSent(true);
       window.localStorage.setItem('subscribed', 'true');
     });
-    window.ga && window.ga('send', 'event', 'Subscription', 'subscribe', 'Subscribe');
+    window.ga &&
+      window.ga('send', 'event', 'Subscription', 'subscribe', 'Subscribe');
   }, []);
 
   useEffect(() => {
@@ -69,4 +70,4 @@ export default () => {
       )}
     </div>
   );
-};
+}

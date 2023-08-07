@@ -1,5 +1,5 @@
 ---
-path: /blog/scraping-light-oj-part-i
+path: /blog/scraping-light-oj-part-i/
 type: post
 title:  "Scraping Light OJ: Part I"
 subtitle: Builing a scrapper to scrape the submitted solutions from LightOJ

@@ -13,7 +13,7 @@ import {
 import './styles/skills.scss';
 import AlgoLogo from '../images/AlgoLogo.svg';
 
-export default () => {
+export default function Skills() {
   return (
     <section id="skills">
       <Fade up>
@@ -100,4 +100,4 @@ export default () => {
       </Row>
     </section>
   );
-};
+}

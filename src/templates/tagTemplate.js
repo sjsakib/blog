@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import PostCard from '../components/PostCard';
 import '../components/styles/post.scss';
 
-export default props => {
+export default function TagTemplate(props) {
   const { data } = props;
   const tag = props.pageContext.tag;
 
@@ -64,13 +64,13 @@ export default props => {
         };
       })
   );
-  
+
   posts.sort((a, b) => b.date - a.date);
 
   const title = `Tag: ${tag}`;
   return (
     <Layout>
-      <SEO title={title + ' | Blog'} description={'All posts tagged: ' + tag} />
+      <Seo title={title + ' | Blog'} description={'All posts tagged: ' + tag} />
       <div className="page">
         <section id="blog">
           <h1>{title}</h1>
@@ -86,7 +86,7 @@ export default props => {
       </div>
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query($tag: String) {

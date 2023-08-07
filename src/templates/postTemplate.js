@@ -2,16 +2,17 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { FaTags, FaCalendarAlt } from 'react-icons/fa';
 import { FacebookProvider, Comments, Like } from 'react-facebook';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import Subscribe from '../components/subscribe';
 import '../components/styles/post.scss';
 
-export default ({ data }) => {
+export default function PostTemplate({data, children}) {
   const { mdx } = data;
-  const { frontmatter, body } = mdx;
+
+  const { frontmatter } = mdx ?? {};
+  if (!frontmatter) return null;
   const {
     path,
     title,
@@ -25,7 +26,7 @@ export default ({ data }) => {
   const { rootUrl, fbAppId } = data.site.siteMetadata;
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title}
         description={subtitle}
         ogImage={image && image.childImageSharp.fixed.src}
@@ -54,7 +55,7 @@ export default ({ data }) => {
             </span>
           </p>
         </div>
-        <MDXRenderer>{body}</MDXRenderer>
+        {children}
         {type === 'post' && <Subscribe />}
         {allowComments && fbAppId && (
           <div className="fb">
@@ -77,7 +78,7 @@ export default ({ data }) => {
       </div>
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -88,7 +89,6 @@ export const pageQuery = graphql`
       }
     }
     mdx(frontmatter: { path: { eq: $path } }) {
-      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

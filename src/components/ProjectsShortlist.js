@@ -4,12 +4,12 @@ import { Row, Col } from 'react-bootstrap';
 
 import PostCard from './PostCard';
 
-export default () => {
+export default function ProjectShortList() {
   const data = useStaticQuery(graphql`
     {
       allMdx(
         filter: { frontmatter: { type: { eq: "project" } } }
-        sort: { fields: [frontmatter___order], order: ASC }
+        sort: { frontmatter: { order: ASC } }
         limit: 6
       ) {
         edges {
@@ -61,4 +61,4 @@ export default () => {
       </Link>
     </section>
   );
-};
+}
