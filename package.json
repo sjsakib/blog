@@ -19,8 +19,6 @@
     "gatsby-plugin-preconnect": "^1.1.31",
     "gatsby-plugin-react-helmet": "^3.1.15",
     "gatsby-plugin-react-svg": "^2.1.2",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.0.29",
     "gatsby-remark-emoji": "^0.0.3",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.0.10",
@@ -28,8 +26,6 @@
     "gatsby-source-filesystem": "^2.0.27",
     "gatsby-source-medium": "2.1.12",
     "gatsby-transformer-remark": "2.3.8",
-    "gatsby-transformer-sharp": "^2.1.17",
-    "node-sass": "^4.13.0",
     "patch-package": "^6.2.0",
     "postinstall-postinstall": "^2.0.0",
     "prismjs": "^1.17.1",
@@ -47,8 +43,6 @@
     "typography": "^0.16.19"
   },
   "resolutions": {
-    "sharp": "^0.23.1",
-    "node-sass": "^4.13.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1",

@@ -60,8 +60,8 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    // `gatsby-transformer-sharp`,
+    // `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
