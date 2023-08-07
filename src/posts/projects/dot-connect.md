@@ -1,5 +1,5 @@
 ---
-path: /projects/dot-connect
+path: /projects/dot-connect/
 type: project
 date: 2018-04-07
 

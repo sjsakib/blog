@@ -1,5 +1,5 @@
 const path = require('path');
-const WorkerPlugin = require('worker-plugin');
+// const WorkerPlugin = require('worker-plugin');
 
 exports.onCreateWebpackConfig = ({
   stage,
@@ -10,7 +10,7 @@ exports.onCreateWebpackConfig = ({
 }) => {
   actions.setWebpackConfig({
     plugins: [
-      new WorkerPlugin(),
+      // new WorkerPlugin(),
     ],
   });
 };
@@ -23,12 +23,15 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+      allMdx(sort: { frontmatter: { date: DESC } }, limit: 1000) {
         edges {
           node {
             frontmatter {
               path
               tags
+            }
+            internal {
+              contentFilePath
             }
           }
         }
@@ -52,12 +55,12 @@ exports.createPages = ({ actions, graphql }) => {
     const allTags = new Set();
     result.data.allMdx.edges.forEach(({ node }) => {
       const { tags } = node.frontmatter;
-      tags && tags.forEach(t => allTags.add(t));
+      tags?.forEach(t => allTags.add(t));
 
       if (node.frontmatter.path) {
         createPage({
           path: node.frontmatter.path,
-          component: postTemplate,
+          component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
           context: {}, // additional data can be passed via context
         });
       }
@@ -65,7 +68,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMediumPost.edges.forEach(({ node }) => {
       const { tags } = node.virtuals;
-      tags && tags.forEach(t => allTags.add(t.slug));
+      tags?.forEach(t => allTags.add(t.slug));
     });
 
     allTags.forEach(tag => {
@@ -91,9 +94,7 @@ exports.onCreateNode = async ({
   if (node.internal.type === 'MediumPost') {
     try {
       const fileNode = await createRemoteFileNode({
-        url: `https://cdn-images-1.medium.com/${
-          node.virtuals.previewImage.imageId
-        }`,
+        url: `https://miro.medium.com/v2/resize:fit:2400/${node.virtuals.previewImage.imageId}`,
         parentNodeId: node.id,
         store,
         cache,
@@ -101,9 +102,17 @@ exports.onCreateNode = async ({
         createNodeId,
       });
 
-      node.image___NODE = fileNode.id;
+      node.image = fileNode.id;
     } catch (err) {
       console.log(err);
     }
   }
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MediumPost implements Node {
+      image: File @link
+    }
+  `);
 };

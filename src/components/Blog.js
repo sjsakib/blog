@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default ({ perPage = 6, perRow = 3, showTags = 8 }) => {
+export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
   const data = useStaticQuery(graphql`
     {
       allMdx(filter: { frontmatter: { type: { eq: "post" } } }) {
@@ -149,7 +149,7 @@ export default ({ perPage = 6, perRow = 3, showTags = 8 }) => {
       />
     </section>
   );
-};
+}
 
 const FilteredPosts = ({
   posts,
@@ -174,7 +174,7 @@ const FilteredPosts = ({
 
   const renderTags = (tags, x) =>
     tags.slice(0, x).map(t => (
-      <span
+      <button
         className={'tag ' + (selected[t] ? ' selected' : '')}
         key={t}
         onClick={() => {
@@ -182,7 +182,7 @@ const FilteredPosts = ({
         }}
       >
         {t}
-      </span>
+      </button>
     ));
 
   return (
@@ -191,7 +191,7 @@ const FilteredPosts = ({
         {renderTags(specialTags, Number.MAX_VALUE)}
       </div>
       <div>{renderTags(tags, tagsMore ? tags.length : showTags)}</div>
-      <span onClick={() => setTagsMore(!tagsMore)} className="tag">
+      <button onClick={() => setTagsMore(!tagsMore)} className="tag">
         {tagsMore ? (
           <>
             <FaArrowUp /> Show Less
@@ -201,7 +201,7 @@ const FilteredPosts = ({
             <FaArrowDown /> Show {tags.length - showTags} more
           </>
         )}
-      </span>
+      </button>
       <div className="space" />
       <Row>
         {posts.slice(0, Math.min(perPage, posts.length)).map(p => (

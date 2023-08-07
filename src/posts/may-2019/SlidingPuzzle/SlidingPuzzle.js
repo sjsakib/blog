@@ -8,13 +8,13 @@ import './SlidingPuzzle.scss';
 
 let worker;
 
-export default ({ methods, givenState, id }) => {
+export default function SlidingPuzzle({ methods, givenState, id }) {
   const [config, setConfig] = useState(givenState || initialState);
   const [solutions, setSolutions] = useState([]);
   const [pendingSolution, setPendingSolution] = useState(false);
 
   useEffect(() => {
-    worker = new Worker('./main.worker.js', { type: 'module' });
+    worker = new Worker(new URL('./main.worker.js', import.meta.url));
   }, []);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default ({ methods, givenState, id }) => {
     return () => {
       worker.removeEventListener('message', listener);
     };
-  }, [solutions, pendingSolution]);
+  }, [solutions, pendingSolution, id]);
 
   useEffect(() => {
     const listener = e => {
