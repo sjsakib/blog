@@ -1,11 +1,5 @@
 @import './_base.scss';
 
-@include media-breakpoint-up(lg) {
-  #about {
-    // padding: 0 3rem;
-  }
-}
-
 #about {
   .about-body {
     max-width: 740px;
