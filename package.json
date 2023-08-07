@@ -8,6 +8,7 @@
     "@mdx-js/mdx": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@mdx-js/tag": "^0.20.3",
+    "@parcel/watcher": "^2.2.0",
     "bootstrap": "^4.3.1",
     "gatsby": "^5.11.0",
     "gatsby-core-utils": "^4.11.0",
