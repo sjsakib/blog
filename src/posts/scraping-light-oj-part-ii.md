@@ -1,5 +1,5 @@
 ---
-path: /blog/scraping-light-oj-part-ii
+path: /blog/scraping-light-oj-part-ii/
 type: post
 title: 'Scraping Light OJ: Part II'
 date: 2017-10-11

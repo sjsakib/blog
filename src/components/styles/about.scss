@@ -1,10 +1,4 @@
-@import './_base';
-
-@include media-breakpoint-up(lg) {
-  #about {
-    // padding: 0 3rem;
-  }
-}
+@import './_base.scss';
 
 #about {
   .about-body {

@@ -1,5 +1,5 @@
 ---
-path: /blog/git-hooks-with-python
+path: /blog/git-hooks-with-python/
 type: post
 
 title: Git Hook with Python

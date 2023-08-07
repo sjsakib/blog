@@ -121,13 +121,13 @@ index 3ab21c6..5c3e840 100644
 +      const links =
 +        resource.type === `Post`
 +          ? {
-+              author___NODE: getID(
++              author: getID(
 +                resources.find(r => r.userId === resource.creatorId)
 +              ),
 +            }
 +          : resource.type === `User`
 +          ? {
-+              posts___NODE: resources
++              posts: resources
 +                .filter(
 +                  r => r.type === `Post` && r.creatorId === resource.userId
 +                )

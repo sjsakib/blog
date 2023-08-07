@@ -47,7 +47,7 @@ const Branch = ({ x, y, angle, level, depth }) => {
   );
 };
 
-export default () => {
+export default function Tree() {
   const [depth, setDepth] = useState(2);
   return (
     <div

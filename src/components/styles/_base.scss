@@ -26,10 +26,6 @@ $secondary-font: 'Noticia Text', 'Apple Color Emoji', 'Segoe UI Emoji',
 $button-hover-color: #f5f5f5;
 $border-color: #dadce0;
 
-html {
-  // scroll-behavior: smooth;
-}
-
 body {
   font-family: $secondary-font;
   font-size: 1.1em;
@@ -94,6 +90,7 @@ section {
     padding: 0.3rem 0.5rem;
     border-radius: 0.4rem;
     border: 1px solid $border-color;
+    background-color: white;
   }
 
   .tag.selected {

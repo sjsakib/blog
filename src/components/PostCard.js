@@ -7,7 +7,7 @@ import Zoom from 'react-reveal/Zoom';
 
 import './styles/post-card.scss';
 
-export default ({ title, subtitle, image, href, dateString }) => {
+export default function PostCard({ title, subtitle, image, href, dateString }) {
   const internal = href.startsWith('/');
   const Link = internal ? GatsbyLink : 'a';
   const attrs = internal
@@ -33,4 +33,4 @@ export default ({ title, subtitle, image, href, dateString }) => {
       </Zoom>
     </Link>
   );
-};
+}

@@ -1,5 +1,5 @@
 import solve from './solve';
-import { move, sleep, moveMap, initialState } from './utils';
+import { move, moveMap } from './utils';
 import { JUMBLE, SET_CONFIG, SOLVE, SET_SOLUTION } from './types';
 
 onmessage = function({ data }) {

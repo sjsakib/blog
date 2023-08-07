@@ -4,12 +4,12 @@ import { Row, Col } from 'react-bootstrap';
 
 import PostCard from './PostCard';
 
-export default () => {
+export default function Projects() {
   const data = useStaticQuery(graphql`
     {
       allMdx(
         filter: { frontmatter: { type: { eq: "project" } } }
-        sort: { fields: [frontmatter___order], order: ASC }
+        sort: { frontmatter: {order: ASC} }
       ) {
         edges {
           node {
@@ -42,7 +42,7 @@ export default () => {
         <PostCard
           title={title}
           subtitle={subtitle}
-          image={image && image.childImageSharp.fluid}
+          image={image?.childImageSharp.fluid}
           href={path}
           dateString={dateString}
         />
