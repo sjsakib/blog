@@ -106,7 +106,7 @@ module.exports = {
       options: {
         fonts: [
           `Quando`,
-          `Noticia Text`,
+          `Noticia Text\:400,400i,700,700i`,
         ],
         display: 'swap'
       },

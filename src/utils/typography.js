@@ -13,8 +13,8 @@ const typography = new Typography({
   ],
   bodyFontFamily: ['Noticia Text', 'serif'],
   googleFonts: [
-    { name: `Quando`, styles: ['700'] },
-    { name: `Noticia Text`, styles: ['700'] },
+    { name: `Quando`, styles: ['400', '700'] },
+    { name: `Noticia Text`, styles: ['400', '700'] },
   ],
 });
 

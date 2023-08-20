@@ -8,7 +8,7 @@ import Seo from '../components/seo';
 import Subscribe from '../components/subscribe';
 import '../components/styles/post.scss';
 
-export default function PostTemplate({data, children}) {
+export default function PostTemplate({ data, children }) {
   const { mdx } = data;
 
   const { frontmatter } = mdx ?? {};
@@ -24,6 +24,7 @@ export default function PostTemplate({data, children}) {
     type,
   } = frontmatter;
   const { rootUrl, fbAppId } = data.site.siteMetadata;
+  const hasMeta = tags.length || date;
   return (
     <Layout>
       <Seo
@@ -35,25 +36,29 @@ export default function PostTemplate({data, children}) {
       <div className="post page">
         <div className="post-heading">
           <h1 className="display-5">{title}</h1>
-          <p>
-            <span className="post-meta">
+          {hasMeta && (
+            <p>
               {tags && (
-                <React.Fragment>
-                  <FaTags />{' '}
-                  {tags
-                    .map(t => (
-                      <Link key={t} className="tag-link" to={`/tags/${t}/`}>
-                        {t}
-                      </Link>
-                    ))
-                    .reduce((prev, next) => [prev, ', ', next])}
-                </React.Fragment>
+                <span className="post-meta">
+                  <React.Fragment>
+                    <FaTags />{' '}
+                    {tags
+                      .map(t => (
+                        <Link key={t} className="tag-link" to={`/tags/${t}/`}>
+                          {t}
+                        </Link>
+                      ))
+                      .reduce((prev, next) => [prev, ', ', next])}
+                  </React.Fragment>
+                </span>
               )}
-            </span>
-            <span className="post-meta">
-              <FaCalendarAlt /> {date}
-            </span>
-          </p>
+              {date && (
+                <span className="post-meta">
+                  <FaCalendarAlt /> {date}
+                </span>
+              )}
+            </p>
+          )}
         </div>
         {children}
         {type === 'post' && <Subscribe />}
