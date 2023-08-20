@@ -24,7 +24,7 @@ export default function PostTemplate({ data, children }) {
     type,
   } = frontmatter;
   const { rootUrl, fbAppId } = data.site.siteMetadata;
-  const hasMeta = tags.length || date;
+  const hasMeta = tags?.length || date;
   return (
     <Layout>
       <Seo
