@@ -10,7 +10,20 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        disableOnDev: true,
+        mergeStyleHashes: false,
+        mergeScriptHashes: false,
+        directives: {
+          'style-src': `'self' 'unsafe-inline' https://fonts.googleapis.com`,
+          'font-src': `'self' https://fonts.gstatic.com`,
+          'script-src': `'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com`,
+          'connect-src': `'self' https://www.google-analytics.com`,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -90,27 +103,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-90813960-7',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-preconnect',
       options: {
         domains: ['https://www.google-analytics.com'],
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Quando`,
-          `Noticia Text\:400,400i,700,700i`,
-        ],
-        display: 'swap'
-      },
-    }
     /*{
       resolve: `gatsby-plugin-typography`,
       options: {

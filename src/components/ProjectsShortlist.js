@@ -57,7 +57,7 @@ export default function ProjectShortList() {
       <Row>{posts}</Row>
       <div className="space" />
       <Link className="button more" to="/projects">
-        See more
+        More Projects
       </Link>
     </section>
   );

@@ -16,10 +16,8 @@ export default function PostTemplate({ data, children }) {
   const {
     path,
     title,
-    subtitle,
     date,
     tags,
-    image,
     allowComments,
     type,
   } = frontmatter;
@@ -27,12 +25,6 @@ export default function PostTemplate({ data, children }) {
   const hasMeta = tags?.length || date;
   return (
     <Layout>
-      <Seo
-        title={title}
-        description={subtitle}
-        ogImage={image && image.childImageSharp.fixed.src}
-        ogType="article"
-      />
       <div className="post page">
         <div className="post-heading">
           <h1 className="display-5">{title}</h1>
@@ -113,3 +105,20 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export function Head({ data }) {
+  const { mdx } = data;
+
+  const { frontmatter } = mdx ?? {};
+  if (!frontmatter) return null;
+  const { title, subtitle, image } = frontmatter;
+
+  return (
+    <Seo
+      title={title}
+      description={subtitle}
+      ogImage={image && image.childImageSharp.fixed.src}
+      ogType="article"
+    />
+  );
+}

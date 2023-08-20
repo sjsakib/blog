@@ -19,7 +19,7 @@ export default function PostCard({ title, subtitle, image, href, dateString }) {
         <Card className="post-card">
           {image && <Img className="card-img-top" fluid={image} />}
           <Card.Body>
-            <Card.Title as={'h4'}>
+            <Card.Title as={'h2'}>
               {title} {!internal && <FaExternalLinkAlt />}
             </Card.Title>
             <Card.Text>{subtitle}</Card.Text>

@@ -10,7 +10,6 @@ import ProjectsShortlist from '../components/ProjectsShortlist';
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
     <div>
       <Hero />
       <div className="divider no-margin" />
@@ -26,3 +25,7 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+export function Head() {
+  return <Seo title="Home" />;
+}

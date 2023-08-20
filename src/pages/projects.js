@@ -6,7 +6,6 @@ import Projects from '../components/Projects';
 
 const ProjectsPage = () => (
   <Layout>
-    <Seo title="Projects"/>
     <div className="page">
       <Projects perPage={1000} perRow={2} />
     </div>
@@ -14,3 +13,7 @@ const ProjectsPage = () => (
 );
 
 export default ProjectsPage;
+
+export function Head() {
+  return <Seo title="Projects" />;
+}

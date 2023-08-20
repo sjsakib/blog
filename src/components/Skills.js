@@ -24,7 +24,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <AlgoLogo className="skill-icon" />
-              <h4>Algorithms and Data Structures</h4>
+              <h2>Algorithms and Data Structures</h2>
               <p>
                 I have understanding of most commonly used algorithms and data
                 structures. I've solved 350+ problems in various online judges.
@@ -36,7 +36,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <FaPaintRoller className="skill-icon" />
-              <h4>Design</h4>
+              <h2>Design</h2>
               <p>
                 I have the necessary skills in HTML and CSS to implement a
                 design. I've worked with bootstrap, bulma, semantic-ui css
@@ -49,7 +49,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <FaReact className="skill-icon" />
-              <h4>React and React Native</h4>
+              <h2>React and React Native</h2>
               <p>
                 I've been working with both these frameworks for over a year
                 now. I've worked with most of the technologies related with
@@ -63,7 +63,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <FaNode className="skill-icon" />
-              <h4>Node</h4>
+              <h2>Node</h2>
               <p>
                 I have basic skills in Node. I'm familiar with express,
                 mongoose, passport, socket.io etc.
@@ -75,7 +75,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <FaPython className="skill-icon" />
-              <h4>Python</h4>
+              <h2>Python</h2>
               <p>
                 Python is my favorite programming language. I prefer python for
                 solving problems in online judges. I've worked with django,
@@ -88,7 +88,7 @@ export default function Skills() {
           <Zoom>
             <div className="skill">
               <FaEllipsisH className="skill-icon" />
-              <h4>Others</h4>
+              <h2>Others</h2>
               <p>
                 Besides these, I have some basic DevOps skills. I've deployed
                 django and node projects to VPS. I'm used to git, linux shell,

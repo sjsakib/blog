@@ -70,7 +70,6 @@ export default function TagTemplate(props) {
   const title = `Tag: ${tag}`;
   return (
     <Layout>
-      <Seo title={title + ' | Blog'} description={'All posts tagged: ' + tag} />
       <div className="page">
         <section id="blog">
           <h1>{title}</h1>
@@ -137,3 +136,11 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export function Head({ pageContext }) {
+  const { tag } = pageContext;
+  const title = `Tag: ${tag}`;
+  return (
+    <Seo title={title + ' | Blog'} description={'All posts tagged: ' + tag} />
+  );
+}

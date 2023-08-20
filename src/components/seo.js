@@ -5,12 +5,19 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, keywords, title, ogImage, ogType }) {
+function SEO({
+  description,
+  lang = 'en',
+  meta = [],
+  keywords = [],
+  title,
+  ogImage,
+  ogType,
+}) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -41,49 +48,56 @@ function SEO({ description, lang, meta, keywords, title, ogImage, ogType }) {
 
   ogImage = rootUrl + (ogImage || data.file.childImageSharp.fixed.src);
 
+  const finalTitle = `${title} | ${siteMetadata.title}`;
+
+  const [includeAnalytics, setIncludeAnalytics] = useState(false);
+
+  useEffect(() => {
+    timeout = setTimeout(() => {
+      setIncludeAnalytics(true);
+    }, 500);
+  }, []);
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: `${title} | ${siteMetadata.title}`,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: ogType || `website`,
-        },
-        {
-          property: `og:image`,
-          content: ogImage,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
-    />
+    <>
+      <html lang={lang} />
+      <title>{finalTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content={ogType || `website`} />
+      <meta property="og:image" content={ogImage} />
+      <meta name="twitter:card" content="summary" />
+      {keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(`, `)} />
+      )}
+      {meta.map((m, i) => (
+        <meta key={i} {...m} />
+      ))}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Quando&display=swap"
+        rel="stylesheet preload"
+      />
+      {includeAnalytics && (
+        <>
+          <script
+            defer
+            id="gtag"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-90813960-7"
+          ></script>
+          <script id="gtag2" defer>
+            {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-90813960-7');`}
+          </script>
+        </>
+      )}
+    </>
   );
 }
 

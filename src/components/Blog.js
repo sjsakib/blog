@@ -214,7 +214,7 @@ const FilteredPosts = ({
         <>
           <div className="space" />
           <Link className="button more" to="/blog">
-            See more
+            More posts
           </Link>
         </>
       )}

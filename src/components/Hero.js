@@ -16,7 +16,7 @@ const Hero = () => {
     return () => {
       clearTimeout(tt);
     };
-  });
+  }, []);
 
   const iAm = [
     'A problem solver',
@@ -48,7 +48,7 @@ const Hero = () => {
             collapse
             ssrReveal
           >
-            <h3>{x}</h3>
+            <h2>{x}</h2>
           </Zoom>
         ))}
       </div>
