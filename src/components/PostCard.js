@@ -17,7 +17,7 @@ export default function PostCard({ title, subtitle, image, href, dateString }) {
     <Link className="card-link" title={title} to={href} href={href} {...attrs}>
       <Zoom>
         <Card className="post-card">
-          {image && <GatsbyImage image={image} />}
+          {image && <GatsbyImage alt={title} image={image} />}
           <Card.Body>
             <Card.Title as={'h2'}>
               {title} {!internal && <FaExternalLinkAlt />}
