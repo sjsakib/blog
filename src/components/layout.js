@@ -21,21 +21,13 @@ const Layout = ({ children }) => {
           title
         }
       }
-      file(relativePath: { regex: "/.*face-circle.png/" }) {
-        childImageSharp {
-          image: fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
 
   const { title } = data.site.siteMetadata;
-  const { image } = data.file.childImageSharp;
   return (
     <div className="root-container">
-      <Header siteTitle={title} image={image} />
+      <Header siteTitle={title} />
       <Container fluid>{children}</Container>
       <div className="divider" />
       <footer>

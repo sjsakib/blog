@@ -95,9 +95,7 @@ export const pageQuery = graphql`
         type
         image {
           childImageSharp {
-            fixed(width: 2400, height: 1260) {
-              src
-            }
+            gatsbyImageData(aspectRatio: 2)
           }
         }
         allowComments
@@ -117,7 +115,7 @@ export function Head({ data }) {
     <Seo
       title={title}
       description={subtitle}
-      ogImage={image && image.childImageSharp.fixed.src}
+      ogImage={image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src}
       ogType="article"
     />
   );

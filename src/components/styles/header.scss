@@ -34,15 +34,8 @@
     text-shadow: none;
   }
 
-  .nav-link:hover {
-    // background-color: $button-hover-color;
+  .nav-link:hover, .nav-link.active {
     text-shadow: 0 0 1px #222;
-  }
-
-  .nav-link.active {
-    // background-color: $button-hover-color;;
-    // color: #1967d2;
-    font-weight: bolder;
   }
 
   #social-icons {

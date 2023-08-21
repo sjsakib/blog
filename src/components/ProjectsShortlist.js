@@ -23,9 +23,7 @@ export default function ProjectShortList() {
               dateString: date(formatString: "MMMM, YYYY")
               image {
                 childImageSharp {
-                  fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(aspectRatio: 2)
                 }
               }
             }
@@ -43,7 +41,7 @@ export default function ProjectShortList() {
         <PostCard
           title={title}
           subtitle={subtitle}
-          image={image && image.childImageSharp.fluid}
+          image={image && image.childImageSharp.gatsbyImageData}
           href={path}
           dateString={dateString}
         />

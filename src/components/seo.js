@@ -31,9 +31,7 @@ function SEO({
         }
         file(relativePath: { regex: "/.*face-cover.png/" }) {
           childImageSharp {
-            fixed(width: 2400, height: 1260) {
-              src
-            }
+            gatsbyImageData(width: 2400, height: 1260)
           }
         }
       }
@@ -46,14 +44,15 @@ function SEO({
 
   const rootUrl = siteMetadata.rootUrl;
 
-  ogImage = rootUrl + (ogImage || data.file.childImageSharp.fixed.src);
+  ogImage =
+    rootUrl + (ogImage || data.file.childImageSharp?.gatsbyImageData?.images?.fallback?.src);
 
   const finalTitle = `${title} | ${siteMetadata.title}`;
 
   const [includeAnalytics, setIncludeAnalytics] = useState(false);
 
   useEffect(() => {
-    timeout = setTimeout(() => {
+    setTimeout(() => {
       setIncludeAnalytics(true);
     }, 500);
   }, []);

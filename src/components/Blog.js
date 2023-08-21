@@ -22,9 +22,7 @@ export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
               mediumSlug
               image {
                 childImageSharp {
-                  fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(aspectRatio: 2, transformOptions: {cropFocus: ATTENTION})
                 }
               }
             }
@@ -48,9 +46,7 @@ export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
             }
             image {
               childImageSharp {
-                fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(aspectRatio: 2, transformOptions: {cropFocus: CENTER})
               }
             }
           }
@@ -90,7 +86,7 @@ export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
       title,
       subtitle,
       tags,
-      image: image && image.childImageSharp.fluid,
+      image: image && image.childImageSharp.gatsbyImageData,
       href: path,
     };
   });
@@ -127,7 +123,7 @@ export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
           dateString,
           title,
           subtitle,
-          image: image && image.childImageSharp.fluid,
+          image: image && image.childImageSharp.gatsbyImageData,
           tags,
           href: 'https://medium.com/stories/' + uniqueSlug,
         };

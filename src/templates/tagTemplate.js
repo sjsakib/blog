@@ -33,7 +33,7 @@ export default function TagTemplate(props) {
       dateString,
       title,
       subtitle,
-      image: image && image.childImageSharp.fluid,
+      image: image?.childImageSharp.gatsbyImageData,
       href: path,
     };
   });
@@ -104,9 +104,7 @@ export const pageQuery = graphql`
           }
           image {
             childImageSharp {
-              fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(aspectRatio: 2)
             }
           }
         }
@@ -125,9 +123,7 @@ export const pageQuery = graphql`
             mediumSlug
             image {
               childImageSharp {
-                fluid(maxHeight: 500, maxWidth: 1000, cropFocus: ATTENTION) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(aspectRatio: 2)
               }
             }
           }

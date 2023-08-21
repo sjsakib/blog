@@ -9,12 +9,12 @@ const inRange = (x, a, b) => a <= x && x <= b;
 const Hero = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    const tt = setTimeout(() => {
-      setCount(count + 1);
+    const tt = setInterval(() => {
+      setCount(count => count + 1);
     }, 1000);
 
     return () => {
-      clearTimeout(tt);
+      clearInterval(tt);
     };
   }, []);
 

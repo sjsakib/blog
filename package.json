@@ -12,9 +12,10 @@
     "bootstrap": "^4.3.1",
     "gatsby": "^5.11.0",
     "gatsby-core-utils": "^4.11.0",
-    "gatsby-image": "^2.0.37",
+    "gatsby-image": "^3.11.0",
     "gatsby-plugin-catch-links": "^5.11.0",
     "gatsby-plugin-csp": "^1.1.4",
+    "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-mdx": "^5.11.0",
     "gatsby-plugin-preconnect": "^1.1.31",
@@ -47,6 +48,7 @@
   },
   "resolutions": {},
   "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.31",
     "prettier": "^1.19.1",
     "sass": "^1.64.2",
     "worker-plugin": "^5.0.1"

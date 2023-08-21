@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Card } from 'react-bootstrap';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import Zoom from 'react-reveal/Zoom';
@@ -17,7 +17,7 @@ export default function PostCard({ title, subtitle, image, href, dateString }) {
     <Link className="card-link" title={title} to={href} href={href} {...attrs}>
       <Zoom>
         <Card className="post-card">
-          {image && <Img className="card-img-top" fluid={image} />}
+          {image && <GatsbyImage image={image} />}
           <Card.Body>
             <Card.Title as={'h2'}>
               {title} {!internal && <FaExternalLinkAlt />}

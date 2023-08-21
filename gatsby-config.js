@@ -72,6 +72,7 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -108,6 +109,7 @@ module.exports = {
         domains: ['https://www.google-analytics.com'],
       },
     },
+    'gatsby-plugin-webpack-bundle-analyser-v2',
     /*{
       resolve: `gatsby-plugin-typography`,
       options: {

@@ -1,19 +1,4 @@
 const path = require('path');
-// const WorkerPlugin = require('worker-plugin');
-
-exports.onCreateWebpackConfig = ({
-  stage,
-  rules,
-  loaders,
-  plugins,
-  actions,
-}) => {
-  actions.setWebpackConfig({
-    plugins: [
-      // new WorkerPlugin(),
-    ],
-  });
-};
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -102,7 +87,9 @@ exports.onCreateNode = async ({
         createNodeId,
       });
 
-      node.image = fileNode.id;
+      if (fileNode) {
+        createNodeField({ node, name: 'image', value: fileNode.id });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -112,7 +99,7 @@ exports.onCreateNode = async ({
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
     type MediumPost implements Node {
-      image: File @link
+      image: File @link(from: "fields.image")
     }
   `);
 };
