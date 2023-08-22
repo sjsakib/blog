@@ -19,10 +19,9 @@ const Hero = () => {
   }, []);
 
   const iAm = [
+    'A full stack engineer',
     'A problem solver',
-    'A self learner',
-    'A passionate programmer',
-    'A full stack developer',
+    'An aspiring athlete',
   ];
 
   return (

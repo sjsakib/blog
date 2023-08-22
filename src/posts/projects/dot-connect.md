@@ -3,7 +3,7 @@ path: /projects/dot-connect/
 type: project
 date: 2018-04-07
 
-order: 1
+order: 6
 
 title: DotConnect - The Game
 subtitle: A turn based two player game built on MERN stack technologies.

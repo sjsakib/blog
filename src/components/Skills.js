@@ -1,17 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import {
-  FaNode,
-  FaPython,
-  FaEllipsisH,
-  FaPaintRoller,
-  FaReact,
-} from 'react-icons/fa';
 
 import './styles/skills.scss';
-import AlgoLogo from '../images/AlgoLogo.svg';
 
 export default function Skills() {
   return (
@@ -19,85 +9,38 @@ export default function Skills() {
       <Fade up>
         <h1>Skills</h1>
       </Fade>
-      <Row>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <AlgoLogo className="skill-icon" />
-              <h2>Algorithms and Data Structures</h2>
-              <p>
-                I have understanding of most commonly used algorithms and data
-                structures. I've solved 350+ problems in various online judges.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <FaPaintRoller className="skill-icon" />
-              <h2>Design</h2>
-              <p>
-                I have the necessary skills in HTML and CSS to implement a
-                design. I've worked with bootstrap, bulma, semantic-ui css
-                frameworks. I'm also familiar with sass.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <FaReact className="skill-icon" />
-              <h2>React and React Native</h2>
-              <p>
-                I've been working with both these frameworks for over a year
-                now. I've worked with most of the technologies related with
-                react, like redux, react-router, nextjs, jest, enzyme etc. So
-                far I've published tree apps in Google Play.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <FaNode className="skill-icon" />
-              <h2>Node</h2>
-              <p>
-                I have basic skills in Node. I'm familiar with express,
-                mongoose, passport, socket.io etc.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <FaPython className="skill-icon" />
-              <h2>Python</h2>
-              <p>
-                Python is my favorite programming language. I prefer python for
-                solving problems in online judges. I've worked with django,
-                selenium, scrapy, fabric, beautiful soup, tkinter in the past.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-        <Col lg={6}>
-          <Zoom>
-            <div className="skill">
-              <FaEllipsisH className="skill-icon" />
-              <h2>Others</h2>
-              <p>
-                Besides these, I have some basic DevOps skills. I've deployed
-                django and node projects to VPS. I'm used to git, linux shell,
-                yarn npm etc.
-              </p>
-            </div>
-          </Zoom>
-        </Col>
-      </Row>
+      <p>
+        <p className="skill-group">
+          <b>Languages</b> <br /> JavaScript, TypeScript, Python, Dart, SQL.
+          Familliar: PHP, Java, C, C++, Golang <br />
+        </p>
+        <p className="skill-group">
+          <b>Frontend</b> <br /> Proficient: React, Next.js, React Native, React
+          Query, GraphQL, Redux, Chrome Extensions, Flutter. Familliar: Vue.js,
+          Alpine.js <br />
+        </p>
+        <p className="skill-group">
+          <b>Backend</b> <br /> Proficient: Node.js, Express.js, Nest.js.
+          Familliar: Flask, Django <br />
+        </p>
+        <p className="skill-group">
+          <b>Database</b> <br /> MySQL, PostgresSQL, Redis. Familliar: MongoDB
+          <br />
+        </p>
+        <p className="skill-group">
+          <b>Testing/Automation</b> <br /> Puppeteer, Selenium, Jest, Cypress,
+          React Testing Library <br />
+        </p>
+        <p className="skill-group">
+          <b>Deployment</b> <br /> Docker, AWS (EC2, RDS, S3, Lambda), GitHub
+          Actions <br />
+        </p>
+        <p className="skill-group">
+          <b>Others tools and technologies</b> <br /> Babel, Webpack, ESLint,
+          SonarLint, Firebase, Sentry, Grafana, HTML, CSS, ES6+, Git, Linux,
+          Jira, Figma, Tooljet
+        </p>
+      </p>
     </section>
   );
 }

@@ -37,7 +37,7 @@ export default function ProjectShortList() {
     const { title, subtitle, image, path, dateString } = edge.node.frontmatter;
     const { id } = edge.node;
     return (
-      <Col lg={6} md={6} key={id}>
+      <Col lg={4} md={6} key={id}>
         <PostCard
           title={title}
           subtitle={subtitle}
@@ -50,7 +50,7 @@ export default function ProjectShortList() {
   });
   return (
     <section id="projects">
-      <h1>Projects</h1>
+      <h1>Some Pet Projects</h1>
       <div className="space" />
       <Row>{posts}</Row>
       <div className="space" />
