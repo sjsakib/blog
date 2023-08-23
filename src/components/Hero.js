@@ -21,6 +21,7 @@ const Hero = () => {
   const iAm = [
     'A full stack engineer',
     'A problem solver',
+    'A lifelong learner',
     'An aspiring athlete',
   ];
 

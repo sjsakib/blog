@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Sharfin Jahan Sakib`,
     description:
-      "Passionate programmer, full stack web developer. Also goes by the handle 'sjsakib' on many platforms.",
-    author: `Sharfin Janhan Sakib`,
+      "Senior full stack engineer with 4+ years of professional experience. A problem solver, an aspiring athlete and a lifelong learner",
+    author: `Sharfin Jahan Sakib`,
 
     rootUrl: `https://sakib.dev`,
     fbAppId: `328751384446361`,
