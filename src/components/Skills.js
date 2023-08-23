@@ -10,7 +10,7 @@ export default function Skills() {
       <Fade up>
         <h1>Skills</h1>
       </Fade>
-      <p>
+      <div>
         <Fade up>
           <p className="skill-group">
             <b>Languages</b> <br /> JavaScript, TypeScript, Python, Dart, SQL.
@@ -55,7 +55,7 @@ export default function Skills() {
             Jira, Figma, Tooljet
           </p>
         </Fade>
-      </p>
+      </div>
       <Fade up>
         <p>
           <Link to="/how-i-work/">

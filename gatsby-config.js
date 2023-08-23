@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Sharfin Jahan Sakib`,
     description:
-      "Senior full stack engineer with 4+ years of professional experience. A problem solver, an aspiring athlete and a lifelong learner",
+      'Senior full stack engineer with 4+ years of professional experience. A problem solver, an aspiring athlete and a lifelong learner',
     author: `Sharfin Jahan Sakib`,
 
     rootUrl: `https://sakib.dev`,
@@ -19,7 +19,7 @@ module.exports = {
         directives: {
           'style-src': `'self' 'unsafe-inline' https://fonts.googleapis.com`,
           'font-src': `'self' https://fonts.gstatic.com`,
-          'script-src': `'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com`,
+          'script-src': `'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.com`,
           'connect-src': `'self' https://www.google-analytics.com`,
         },
       },

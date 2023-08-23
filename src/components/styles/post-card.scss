@@ -6,6 +6,10 @@ a.card-link:hover {
   text-shadow: inherit;
 }
 
+.card-title {
+  overflow-wrap: anywhere;
+}
+
 .post-card {
   text-align: left;
   margin: 0.5rem auto;

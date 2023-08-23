@@ -61,6 +61,7 @@ const Header = ({ siteTitle }) => {
             placeholder="traceSVG"
             src="../images/face-circle.png"
             className="brand-image"
+            alt="Sharfin Jahan Sakib"
           />
         </div>
       </Navbar.Brand>

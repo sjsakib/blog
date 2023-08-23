@@ -9,7 +9,7 @@ export default function Projects() {
     {
       allMdx(
         filter: { frontmatter: { type: { eq: "project" } } }
-        sort: { frontmatter: {order: ASC} }
+        sort: { frontmatter: { order: ASC } }
       ) {
         edges {
           node {
@@ -54,4 +54,4 @@ export default function Projects() {
       <Row>{posts}</Row>
     </section>
   );
-};
+}

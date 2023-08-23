@@ -79,6 +79,7 @@ function SEO({
       <link
         href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Quando&display=swap"
         rel="stylesheet preload"
+        as="style"
       />
       {includeAnalytics && (
         <>
