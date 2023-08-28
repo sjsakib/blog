@@ -19,7 +19,7 @@ module.exports = {
         directives: {
           'style-src': `'self' 'unsafe-inline' https://fonts.googleapis.com`,
           'font-src': `'self' https://fonts.gstatic.com`,
-          'script-src': `'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.com`,
+          'script-src': `'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.com  https://connect.facebook.net`,
           'connect-src': `'self' https://www.google-analytics.com`,
         },
       },
