@@ -59,7 +59,7 @@ export default function Skills() {
       <Fade up>
         <p>
           <Link to="/how-i-work/">
-            What I think makes me a great Software engineer
+            What I think makes me a good software engineer
           </Link>
         </p>
       </Fade>
