@@ -5,7 +5,7 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
 import PostCard from './PostCard';
 
-export default function Posts({ perPage = 6, perRow = 3, showTags = 8 }) {
+export default function Posts({ perPage = 3, perRow = 3, showTags = 8 }) {
   const data = useStaticQuery(graphql`
     {
       allMdx(filter: { frontmatter: { type: { eq: "post" } } }) {

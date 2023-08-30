@@ -10,7 +10,7 @@ export default function ProjectShortList() {
       allMdx(
         filter: { frontmatter: { type: { eq: "project" } } }
         sort: { frontmatter: { order: ASC } }
-        limit: 6
+        limit: 3
       ) {
         edges {
           node {
